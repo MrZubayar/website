@@ -4054,3 +4054,27 @@ input, select, textarea {
 /* Optional: make the degree line pop a little more */
 #education .content h2 { color: #fff; }
 
+/* Links inside Education headings */
+#education .content h2 a.edu-link {
+  border: 0;                        /* remove dotted underline from theme */
+  text-decoration: none;
+  color: #a6e0db;                   /* subtle teal to match Spectral */
+  transition: color .2s ease, text-shadow .3s ease;
+}
+
+/* Glow / highlight on hover & keyboard focus */
+#education .content h2 a.edu-link:hover,
+#education .content h2 a.edu-link:focus {
+  color: #ffffff;
+  text-shadow:
+    0 0 6px rgba(33,178,166,.9),
+    0 0 14px rgba(33,178,166,.6),
+    0 0 24px rgba(33,178,166,.4);
+  outline: none;                    /* remove default outline */
+}
+
+/* Keep accessibility: show a soft ring when using keyboard */
+#education .content h2 a.edu-link:focus-visible {
+  box-shadow: 0 0 0 2px rgba(33,178,166,.9);
+  border-radius: 4px;
+}
