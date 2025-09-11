@@ -4078,3 +4078,8 @@ input, select, textarea {
   box-shadow: 0 0 0 2px rgba(33,178,166,.9);
   border-radius: 4px;
 }
+
+/* Spacing for the Education title inside the 'alt' wrapper */
+#education > .inner {
+  padding: 3em 0 1em;   /* top / sides / bottom */
+}
