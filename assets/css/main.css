@@ -3999,21 +3999,35 @@ input, select, textarea {
 	}
 
 
-/* --- Custom: social icons on banner --- */
+/* --- Custom: social icons under CTA, above Learn More --- */
 #banner .social-banner {
-  position: absolute;
-  left: 50%;
-  bottom: 9.5em;            /* adjust 8.5–10.5em if needed */
-  transform: translateX(-50%);
+  position: static !important;         /* back to normal flow */
+  transform: none !important;
+  left: auto; bottom: auto;
+  margin: 1.25em auto 0;               /* space below the buttons */
+  display: flex;
+  justify-content: center;
+  gap: 1em;                            /* even spacing between icons */
   font-size: 1.25em;
   z-index: 1;
 }
-#banner .social-banner a { border: 0; color: rgba(255,255,255,0.9); }
-#banner .social-banner a:hover { color: #fff; }
 
-@media screen and (max-width: 736px) {
-  #banner .social-banner { bottom: 7.5em; font-size: 1.1em; }
-  #banner .social-banner li { padding-right: 0.75em; }
+#banner .social-banner a {
+  border: 0;
+  color: rgba(255,255,255,0.9);
+}
+#banner .social-banner a:hover {
+  color: #fff;
 }
 
+/* Give a bit more breathing room above Learn More */
+#banner .inner {
+  padding-bottom: 3.5em;               /* adjust 3–5em to taste */
+}
+
+/* Tweak on small screens */
+@media screen and (max-width: 736px) {
+  #banner .social-banner { font-size: 1.1em; gap: 0.75em; }
+  #banner .inner { padding-bottom: 3em; }
+}
 
