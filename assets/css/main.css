@@ -4126,3 +4126,20 @@ input, select, textarea {
 #contact .inner header {
   margin-bottom: 2.25em;
 }
+
+
+/* Footer copyright: single subtle line */
+#footer .copyright {
+  color: rgba(255,255,255,0.45);
+  font-size: 0.9em;
+  letter-spacing: 0.02em;
+  text-transform: none;         /* remove ALL CAPS */
+  margin-top: 0.75em;
+}
+
+#footer .copyright li {
+  border: 0;                    /* remove vertical separator */
+  display: inline;              /* one inline sentence */
+  padding: 0;
+  margin: 0;
+}
