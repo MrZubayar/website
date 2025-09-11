@@ -4003,24 +4003,17 @@ input, select, textarea {
 #banner .social-banner {
   position: absolute;
   left: 50%;
-  bottom: 9.5em;              /* sits above the "Learn More" pill */
+  bottom: 9.5em;            /* adjust 8.5–10.5em if needed */
   transform: translateX(-50%);
   font-size: 1.25em;
   z-index: 1;
 }
+#banner .social-banner a { border: 0; color: rgba(255,255,255,0.9); }
+#banner .social-banner a:hover { color: #fff; }
 
-#banner .social-banner a {
-  border: 0;                   /* remove dotted underline */
-  color: rgba(255,255,255,0.9);
-}
-
-#banner .social-banner a:hover {
-  color: #fff;
-}
-
-/* tighten spacing on small screens */
 @media screen and (max-width: 736px) {
   #banner .social-banner { bottom: 7.5em; font-size: 1.1em; }
   #banner .social-banner li { padding-right: 0.75em; }
 }
+
 
