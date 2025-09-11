@@ -1,5 +1,7 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;600&display=swap");
+
 
 /*
 	Spectral by HTML5 UP
@@ -4030,4 +4032,25 @@ input, select, textarea {
   #banner .social-banner { font-size: 1.1em; gap: 0.75em; }
   #banner .inner { padding-bottom: 3em; }
 }
+
+
+/* ==== Education section typography overrides ==== */
+/* Headings in Education */
+#education .content h2 {
+  font-family: "Playfair Display", serif;  /* new heading font */
+  font-weight: 800;
+  text-transform: none;                    /* remove ALL CAPS */
+  letter-spacing: 0.02em;                  /* tighter than template */
+  line-height: 1.2;
+}
+
+/* Paragraphs in Education */
+#education .content p {
+  font-family: "Inter", "Open Sans", Helvetica, sans-serif; /* new body font */
+  letter-spacing: 0.02em;
+  font-size: 1.05em;
+}
+
+/* Optional: make the degree line pop a little more */
+#education .content h2 { color: #fff; }
 
