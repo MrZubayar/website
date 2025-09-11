@@ -4083,3 +4083,46 @@ input, select, textarea {
 #education > .inner {
   padding: 3em 0 1em;   /* top / sides / bottom */
 }
+
+/* ==== Typography: Experience → Contact (match Education) ==== */
+
+/* Headings (section titles + inner headings) */
+#experience h2, #experience h3, #experience h4,
+#skills h2,     #skills h3,     #skills h4,
+#services h2,   #services h3,   #services h4,
+#projects h2,   #projects h3,   #projects h4,
+#contact h2,    #contact h3,    #contact h4 {
+  font-family: "Playfair Display", serif !important;
+  font-weight: 800;
+  text-transform: none !important;   /* remove ALL CAPS */
+  letter-spacing: 0.02em !important; /* tighter tracking */
+  line-height: 1.2;
+  color: #fff;
+}
+
+/* Feature-card/item subheadings (Experience/Projects lists) */
+#experience .features h3,
+#projects  .features h3 {
+  font-family: "Playfair Display", serif !important;
+  text-transform: none !important;
+  letter-spacing: 0.02em !important;
+}
+
+/* Body text + list items */
+#experience p, #experience li,
+#skills p,     #skills li,
+#services p,   #services li,
+#projects p,   #projects li,
+#contact p,    #contact li {
+  font-family: "Inter", "Open Sans", Helvetica, sans-serif !important;
+  letter-spacing: 0.02em;
+  font-size: 1.05em;
+}
+
+/* Optional: a bit of extra space under each section title */
+#experience .inner .major,
+#skills .inner .major,
+#projects .inner .major,
+#contact .inner header {
+  margin-bottom: 2.25em;
+}
