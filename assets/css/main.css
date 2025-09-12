@@ -4192,3 +4192,5 @@ input, select, textarea {
 .project-card .links { display: flex; gap: .5rem; }
 .project-card .button.small { font-size: .75em; height: 2.5em; line-height: 2.5em; padding: 0 1em; }
 
+/* Active nav highlight */
+#header nav a.active { color: #21b2a6; }
