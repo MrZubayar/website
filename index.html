@@ -12,7 +12,7 @@
       <!-- Favicon -->
       <link rel="icon" href="images/favicon.ico">
       <!-- (Optional PNG) <link rel="icon" type="image/png" href="images/favicon.png"> -->
-      <link rel="icon" href="images/favicon.ico">
+
 
 
       <link rel="stylesheet" href="assets/css/main.css" />
@@ -364,6 +364,11 @@
         </ul>
       </footer>
 
+      <!-- Floating easter-egg button -->
+            <button id="egg-fab" class="egg-fab" aria-controls="easter-egg" aria-label="Play 80s surprise" title="80s surprise">
+            🎵
+            </button>
+
     </div>
 
     <!-- Scripts -->
@@ -432,6 +437,51 @@
 </script>
 
 
+<!-- Rickroll modal -->
+<div id="easter-egg" class="egg-modal hidden" role="dialog" aria-modal="true" aria-label="80s surprise">
+  <div class="egg-dialog" role="document">
+    <button class="egg-close" aria-label="Close">×</button>
+    <div class="egg-frame">
+      <!-- use data-src so video only loads when opened -->
+      <iframe
+        width="560" height="315" title="Never Gonna Give You Up"
+        src="" data-src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&modestbranding=1"
+        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var fab  = document.getElementById('egg-fab');
+  var egg  = document.getElementById('easter-egg');
+  if (!fab || !egg) return;
+
+  var iframe = egg.querySelector('iframe');
+  var src    = iframe.getAttribute('data-src');
+
+  function openEgg(e){ if(e) e.preventDefault();
+    egg.classList.remove('hidden');
+    iframe.src = src;                     // start video
+    document.body.style.overflow = 'hidden';
+    fab.setAttribute('aria-expanded','true');
+  }
+  function closeEgg(){
+    egg.classList.add('hidden');
+    iframe.src = '';                      // stop video
+    document.body.style.overflow = '';
+    fab.setAttribute('aria-expanded','false');
+  }
+
+  fab.addEventListener('click', openEgg);
+  egg.querySelector('.egg-close').addEventListener('click', closeEgg);
+  egg.addEventListener('click', function(e){ if(e.target === egg) closeEgg(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeEgg(); });
+})();
+</script>
+
 
   </body>
 </html>
+
