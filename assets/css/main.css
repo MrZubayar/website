@@ -4219,17 +4219,15 @@ input, select, textarea {
   content:"";
   position:absolute;
   left:50%; top:50%;
-  width:120px; height:120px;            /* halo size */
+  width:90px; height:90px;
   transform:translate(-50%,-50%);
   border-radius:50%;
-  background: radial-gradient(circle,
-    rgba(33,178,166,.45) 0%,
-    rgba(33,178,166,.25) 40%,
-    rgba(33,178,166,0) 70%);
+  box-shadow:0 0 20px 6px rgba(33,178,166,.9) inset,
+             0 0 26px 8px rgba(33,178,166,.55);
+  background: transparent;
   pointer-events:none;
-  opacity:.9;
-  box-shadow:none;                       /* remove old box-shadow */
 }
+
 
 
 /* Gentle pulse (respects reduced motion) */
