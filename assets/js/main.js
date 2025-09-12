@@ -81,3 +81,31 @@
 		}
 
 })(jQuery);
+
+<!-- Optional: show a quick status after submission without leaving page -->
+<script>
+  (function () {
+    var form = document.querySelector('.contact-form');
+    var status = document.getElementById('form-status');
+    if (!form || !status) return;
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' }});
+        if (res.ok) {
+          status.textContent = 'Thanks! I will get back to you soon.';
+          status.style.display = 'block';
+          form.reset();
+        } else {
+          status.textContent = 'Something went wrong. Please email me directly.';
+          status.style.display = 'block';
+        }
+      } catch (err) {
+        status.textContent = 'Network error. Please email me directly.';
+        status.style.display = 'block';
+      }
+    });
+  })();
+</script>
