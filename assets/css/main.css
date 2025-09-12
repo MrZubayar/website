@@ -4217,12 +4217,20 @@ input, select, textarea {
 /* Soft ambient glow ring */
 .egg-fab::after{
   content:"";
-  position:absolute; inset:-6px;
-  border-radius:inherit;
-  box-shadow:0 0 14px 6px rgba(33,178,166,.65);
+  position:absolute;
+  left:50%; top:50%;
+  width:120px; height:120px;            /* halo size */
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background: radial-gradient(circle,
+    rgba(33,178,166,.45) 0%,
+    rgba(33,178,166,.25) 40%,
+    rgba(33,178,166,0) 70%);
   pointer-events:none;
-  opacity:.85;
+  opacity:.9;
+  box-shadow:none;                       /* remove old box-shadow */
 }
+
 
 /* Gentle pulse (respects reduced motion) */
 @media (prefers-reduced-motion:no-preference){
