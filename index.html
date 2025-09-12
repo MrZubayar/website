@@ -287,34 +287,64 @@
               <p>If you’d like collaboration, consulting, or project support, feel free to reach out.</p>
             </header>
 
-            <!-- Formspree form: replace action URL after creating your form -->
-            <form method="POST" action="https://formspree.io/f/mblabkpp" class="contact-form">
-              <div class="row gtr-uniform">
-                <div class="col-6 col-12-small">
-                  <input type="text" name="name" id="name" placeholder="Your name" required />
-                </div>
-                <div class="col-6 col-12-small">
-                  <input type="email" name="_replyto" id="email" placeholder="Your email" required />
-                </div>
-                <div class="col-12">
-                  <input type="text" name="subject" id="subject" placeholder="Subject" />
-                </div>
-                <div class="col-12">
-                  <textarea name="message" id="message" placeholder="Your message" rows="6" required></textarea>
-                </div>
-                <!-- anti-bot honeypot -->
-                <input type="text" name="_gotcha" style="display:none" />
-                <!-- redirect after success (optional) -->
-                <input type="hidden" name="_subject" value="New message from zubayar.dev" />
-                <div class="col-12">
-                  <ul class="actions">
-                    <li><button type="submit" class="button primary">Send Message</button></li>
-                    <li><a href="mailto:zubayarofficial@gmail.com" class="button">Email Me Directly</a></li>
-                    <li><a href="https://www.linkedin.com/in/zubayar" target="_blank" rel="noreferrer" class="button">LinkedIn</a></li>
-                  </ul>
-                </div>
-              </div>
-            </form>
+      <!-- Formspree form -->
+        <form method="POST" action="https://formspree.io/f/mblabkpp" class="contact-form" autocomplete="on">
+          <div class="row gtr-uniform">
+            <div class="col-6 col-12-small">
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Your name"
+                autocomplete="name"
+                required />
+            </div>
+
+            <div class="col-6 col-12-small">
+              <input
+                type="email"
+                name="_replyto"
+                id="email"
+                placeholder="Your email"
+                autocomplete="email"
+                required />
+            </div>
+
+            <div class="col-12">
+              <input
+                type="text"
+                name="subject"
+                id="subject"
+                placeholder="Subject"
+                autocomplete="off" />
+            </div>
+
+            <div class="col-12">
+              <textarea
+                name="message"
+                id="message"
+                placeholder="Your message"
+                rows="6"
+                autocomplete="off"
+                required></textarea>
+            </div>
+
+            <!-- anti-bot honeypot -->
+            <input type="text" name="_gotcha" style="display:none" autocomplete="off" />
+
+            <!-- redirect after success (optional) -->
+            <input type="hidden" name="_subject" value="New message from zubayar.dev" />
+
+            <div class="col-12">
+              <ul class="actions">
+                <li><button type="submit" class="button primary">Send Message</button></li>
+                <li><a href="mailto:zubayarofficial@gmail.com" class="button">Email Me Directly</a></li>
+                <li><a href="https://www.linkedin.com/in/zubayar" target="_blank" rel="noreferrer" class="button">LinkedIn</a></li>
+              </ul>
+            </div>
+          </div>
+        </form>
+
 
             <!-- Success/Fail messages (Formspree will show its own; this is a fallback) -->
             <p class="form-status" id="form-status" style="display:none;"></p>
