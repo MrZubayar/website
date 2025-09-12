@@ -109,3 +109,29 @@
     });
   })();
 </script>
+
+<script>
+  (function() {
+    var sections = ['banner','about','education','experience','skills','services','projects','contact']
+      .map(function(id){ var el = document.getElementById(id); return el ? {id, top:0, el} : null; })
+      .filter(Boolean);
+    var links = Array.from(document.querySelectorAll('#header nav a'));
+    function onScroll() {
+      var y = window.scrollY + window.innerHeight * 0.25; // activate a bit before the section center
+      var current = sections[0] && sections[0].id;
+      sections.forEach(function(s){
+        s.top = s.el.getBoundingClientRect().top + window.scrollY;
+        if (y >= s.top) current = s.id;
+      });
+      links.forEach(function(a){
+        var href = a.getAttribute('href') || '';
+        var id   = href.startsWith('#') ? href.slice(1) : '';
+        a.classList.toggle('active', id === current);
+      });
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('resize', onScroll);
+    onScroll();
+  })();
+</script>
+
