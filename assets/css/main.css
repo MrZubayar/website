@@ -4204,7 +4204,7 @@ input, select, textarea {
 
 .egg-fab{
   position: absolute;                            /* was: fixed */
-  right: 1rem; bottom: 3rem;                     /* stays only within footer */
+  right: 2rem; bottom: 5rem;                     /* stays only within footer */
   width: 48px; height: 48px;
   border-radius: 50%;
   border: none; outline: none;
