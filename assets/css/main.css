@@ -4214,7 +4214,7 @@ input, select, textarea {
   box-shadow: 0 8px 20px rgba(0,0,0,.35);
 }
 
-/* Circular halo (clean round aura) */
+/* Circular halo (clean round aura) — ORANGE */
 .egg-fab::after{
   content:"";
   position:absolute;
@@ -4223,13 +4223,14 @@ input, select, textarea {
   transform:translate(-50%,-50%);
   border-radius:50%;
   background: radial-gradient(circle,
-    rgba(33,178,166,.45) 0%,
-    rgba(33,178,166,.25) 40%,
-    rgba(33,178,166,0) 70%);
+    rgba(237,73,51,.50) 0%,
+    rgba(237,73,51,.28) 42%,
+    rgba(237,73,51,0) 70%);
   pointer-events:none;
   opacity:.9;
-  box-shadow:none;                       /* remove old box-shadow */
+  box-shadow:none;                       /* no outer shadow */
 }
+
 
 
 
