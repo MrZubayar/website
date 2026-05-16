@@ -1,258 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EASA A1/A3 Course — UAV Learning | Md Zubayar</title>
-  <meta name="description" content="Full EASA Open Category A1/A3 Remote Pilot Certificate course curriculum — 6 modules, 20 lessons, based on EU Regulation 2019/947." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EASA A1/A3 Course Curriculum — UAV | Zubayar</title>
+  <meta name="description" content="Full EASA Open Category A1/A3 Remote Pilot Certificate course curriculum — 6 modules, 20 lessons, based on EU Regulation 2019/947."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Abril+Fatface&display=swap" rel="stylesheet"/>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg:        #0e0804;
-      --bg2:       #1a0f07;
-      --bg3:       #261508;
-      --border:    #3a2010;
-      --border2:   #4d2c12;
-      --accent:    #c06a20;
-      --accent2:   #e07d2a;
-      --accent3:   #f0a050;
-      --text:      #f0e8df;
-      --text2:     #b8a090;
-      --text3:     #7a6050;
-      --green:     #5a9a5a;
-      --blue:      #4a80c0;
-      --mono:      'JetBrains Mono', monospace;
-      --sans:      'Inter', sans-serif;
+    /* ── Reset ── */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      /* Site nav colours */
+      --nav-bg:    #7A4010;
+      --nav-brd:   #E8530A;
+      --nav-txt:   rgba(245,237,217,.55);
+      --nav-act:   #F5EDD9;
+      --nav-glow:  rgba(232,83,10,0.18);
+      --orange:    #E8530A;
+      /* Doc theme */
+      --page-bg:   #F4F6FA;
+      --white:     #FFFFFF;
+      --navy:      #1F3864;
+      --blue:      #2E75B6;
+      --blue-lt:   #D5E8F0;
+      --blue-mid:  #BDD7EE;
+      --green-bg:  #E2EFDA;
+      --green-brd: #A9D18E;
+      --yellow-bg: #FFF2CC;
+      --yellow-brd:#FFD966;
+      --grey-bg:   #F2F2F2;
+      --grey-brd:  #D6D6D6;
+      --red-bg:    #FCE4D6;
+      --red-brd:   #F4B183;
+      --text:      #1A1A1A;
+      --text2:     #444444;
+      --text3:     #777777;
+      --brd:       #CCCCCC;
+      --sans:      'DM Sans', sans-serif;
     }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
-    a { color: inherit; text-decoration: none; }
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--sans);background:var(--page-bg);color:var(--text);-webkit-font-smoothing:antialiased;font-weight:300;}
+    a{color:inherit;text-decoration:none;}
+    ::-webkit-scrollbar{width:6px;}
+    ::-webkit-scrollbar-track{background:#eee;}
+    ::-webkit-scrollbar-thumb{background:#bbb;border-radius:3px;}
 
-    /* ── Nav ── */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: var(--bg2); border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 2rem; height: 52px;
+    /* ── Site Nav (matches main site style) ── */
+    #topnav{
+      position:sticky;top:0;z-index:200;
+      background:var(--nav-bg);
+      border-bottom:3px solid var(--orange);
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0 2rem;height:52px;
+      box-shadow:0 2px 12px rgba(122,64,16,0.3);
     }
-    .nav-logo { font-family: var(--mono); font-weight: 500; font-size: 1rem; color: var(--text); letter-spacing: 0.05em; }
-    .nav-logo span { color: var(--accent); }
-    .nav-links { display: flex; gap: 0; list-style: none; height: 100%; }
-    .nav-links a {
-      display: flex; align-items: center; height: 52px; padding: 0 1rem;
-      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--text2); border-bottom: 2px solid transparent;
-      transition: color .2s, border-color .2s, background .2s;
+    .tn-logo{font-family:'Abril Fatface',serif;font-size:1rem;color:#F5EDD9;letter-spacing:.04em;}
+    .tn-logo span{color:var(--orange);}
+    .tn-links{display:flex;gap:0;list-style:none;height:52px;}
+    .tn-links li a{
+      display:flex;align-items:center;height:52px;padding:0 .9rem;
+      font-size:.65rem;font-weight:400;letter-spacing:.14em;text-transform:uppercase;
+      color:var(--nav-txt);border-left:1px solid rgba(245,237,217,.1);
+      transition:color .2s,background .2s;white-space:nowrap;
     }
-    .nav-links a:hover { color: var(--text); background: var(--bg3); }
-    .nav-links a.active { color: var(--accent2); background: rgba(192,106,32,.12); border-bottom-color: var(--accent); }
-    .nav-cv {
-      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--accent); border: 1px solid var(--accent); padding: 0.3rem 0.75rem; border-radius: 3px;
-      transition: background .2s, color .2s;
+    .tn-links li:last-child a{border-right:1px solid rgba(245,237,217,.1);}
+    .tn-links li a:hover,.tn-links li a.active{color:var(--nav-act);background:var(--nav-glow);}
+    .tn-cv{
+      font-size:.65rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;
+      padding:.38rem 1rem;background:var(--orange);color:#fff;
+      border:none;transition:background .2s;white-space:nowrap;
     }
-    .nav-cv:hover { background: var(--accent); color: var(--bg); }
+    .tn-cv:hover{background:#C44208;}
+    @media(max-width:780px){.tn-links{display:none;}}
 
     /* ── Breadcrumb ── */
-    .breadcrumb {
-      max-width: 1100px; margin: 0 auto;
-      padding: 1rem 2rem 0;
-      font-size: 0.75rem; color: var(--text3);
-      font-family: var(--mono);
+    .breadcrumb{
+      background:var(--white);border-bottom:1px solid var(--brd);
+      padding:.6rem 2rem;font-size:.75rem;color:var(--text3);
     }
-    .breadcrumb a { color: var(--text2); transition: color .2s; }
-    .breadcrumb a:hover { color: var(--accent2); }
-    .breadcrumb span { color: var(--text3); }
+    .breadcrumb a{color:var(--blue);transition:color .2s;}
+    .breadcrumb a:hover{color:var(--navy);}
 
-    /* ── Hero ── */
-    .hero {
-      max-width: 1100px; margin: 0 auto;
-      padding: 2.5rem 2rem 3rem;
-      display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: start;
+    /* ── Page wrapper ── */
+    .page{max-width:1060px;margin:0 auto;padding:2rem 1.5rem 4rem;}
+
+    /* ── Cover block ── */
+    .cover{
+      background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%);
+      color:#fff;border-radius:6px;padding:2.5rem 3rem;
+      margin-bottom:2rem;position:relative;overflow:hidden;
     }
-    @media (max-width: 720px) { .hero { grid-template-columns: 1fr; } }
-    .hero-eyebrow {
-      font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.16em;
-      text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem;
+    .cover::after{
+      content:'';position:absolute;right:-40px;top:-40px;
+      width:220px;height:220px;border-radius:50%;
+      background:rgba(255,255,255,.06);pointer-events:none;
     }
-    .hero h1 {
-      font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700; line-height: 1.15;
-      color: var(--text); margin-bottom: 1rem;
+    .cover-eyebrow{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;opacity:.7;margin-bottom:.75rem;}
+    .cover h1{font-family:'Abril Fatface',serif;font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.1;margin-bottom:.5rem;}
+    .cover-sub{font-size:.95rem;opacity:.8;margin-bottom:1.5rem;max-width:540px;line-height:1.6;}
+    .cover-chips{display:flex;flex-wrap:wrap;gap:.5rem;}
+    .cover-chip{
+      font-size:.65rem;letter-spacing:.06em;
+      padding:.22rem .65rem;border-radius:2px;
+      background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;
     }
-    .hero h1 em { font-style: italic; color: var(--accent2); }
-    .hero-desc { font-size: 0.95rem; color: var(--text2); line-height: 1.7; max-width: 540px; margin-bottom: 1.5rem; }
-    .hero-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .chip {
-      font-family: var(--mono); font-size: 0.63rem; letter-spacing: 0.06em;
-      padding: 0.22rem 0.6rem; border-radius: 2px;
-      border: 1px solid var(--border2); color: var(--text2); background: var(--bg2);
+    .cover-stats{
+      display:grid;grid-template-columns:repeat(6,1fr);gap:.75rem;
+      margin-top:1.5rem;
+    }
+    @media(max-width:640px){.cover-stats{grid-template-columns:repeat(3,1fr);}}
+    .cstat{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:4px;padding:.65rem .5rem;text-align:center;}
+    .cstat-n{font-size:1.1rem;font-weight:600;}
+    .cstat-l{font-size:.6rem;opacity:.7;letter-spacing:.07em;text-transform:uppercase;margin-top:.15rem;}
+
+    /* ── Section titles ── */
+    .sec-title{
+      font-family:'Abril Fatface',serif;font-size:1.3rem;color:var(--navy);
+      padding-bottom:.5rem;margin-bottom:1.2rem;
+      border-bottom:3px solid var(--blue);display:flex;align-items:center;gap:.6rem;
+    }
+    .sec-title span{font-family:var(--sans);font-size:.7rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);background:var(--blue-lt);padding:.2rem .55rem;border-radius:2px;}
+
+    /* ── Info card ── */
+    .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;}
+    @media(max-width:600px){.info-grid{grid-template-columns:1fr;}}
+    .info-card{background:var(--white);border:1px solid var(--brd);border-radius:4px;padding:1.25rem;}
+    .info-card h3{font-size:.8rem;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.75rem;}
+    .info-card p{font-size:.88rem;color:var(--text2);line-height:1.65;}
+
+    /* ── Course overview table ── */
+    .overview-table{width:100%;border-collapse:collapse;background:var(--white);margin-bottom:2rem;font-size:.85rem;}
+    .overview-table th,.overview-table td{border:1px solid var(--brd);padding:.55rem .85rem;text-align:left;vertical-align:top;}
+    .overview-table th{background:var(--navy);color:#fff;font-weight:500;font-size:.75rem;letter-spacing:.06em;}
+    .overview-table tr:nth-child(even) td{background:var(--grey-bg);}
+    .overview-table td:first-child{font-weight:500;color:var(--navy);width:30%;}
+
+    /* ── Outcomes list ── */
+    .outcomes{background:var(--white);border:1px solid var(--brd);border-radius:4px;padding:1.25rem 1.5rem;margin-bottom:2rem;}
+    .outcomes ul{list-style:none;padding:0;}
+    .outcomes ul li{
+      font-size:.875rem;color:var(--text2);line-height:1.6;
+      padding:.35rem 0 .35rem 1.2rem;position:relative;
+      border-bottom:1px solid var(--grey-bg);
+    }
+    .outcomes ul li:last-child{border-bottom:none;}
+    .outcomes ul li::before{content:'›';position:absolute;left:0;color:var(--blue);font-weight:700;font-size:1rem;}
+
+    /* ── Module accordion ── */
+    .modules{display:flex;flex-direction:column;gap:1.25rem;margin-bottom:2rem;}
+
+    .module{background:var(--white);border:1px solid var(--brd);border-radius:5px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.06);}
+
+    .mod-header{
+      display:flex;align-items:center;gap:1rem;
+      padding:1rem 1.25rem;cursor:pointer;
+      background:var(--navy);
+      transition:background .2s;
+      user-select:none;
+    }
+    .mod-header:hover{background:#16294d;}
+    .mod-num{
+      font-family:'Abril Fatface',serif;font-size:1.5rem;
+      color:rgba(255,255,255,.25);line-height:1;min-width:2.2rem;
+    }
+    .mod-title-wrap{flex:1;}
+    .mod-title{font-size:1rem;font-weight:600;color:#fff;}
+    .mod-sub{font-size:.72rem;color:rgba(255,255,255,.55);margin-top:.15rem;}
+    .mod-badge{
+      font-size:.62rem;letter-spacing:.07em;text-transform:uppercase;
+      padding:.2rem .55rem;background:rgba(255,255,255,.15);
+      border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.8);
+      border-radius:2px;white-space:nowrap;flex-shrink:0;
+    }
+    .mod-chevron{color:rgba(255,255,255,.5);font-size:.8rem;transition:transform .3s;flex-shrink:0;}
+    .module.open .mod-chevron{transform:rotate(180deg);}
+
+    /* Color band on left of each module */
+    .module[data-mod="1"] .mod-header{background:#1F3864;}
+    .module[data-mod="2"] .mod-header{background:#C55A11;}
+    .module[data-mod="3"] .mod-header{background:#375623;}
+    .module[data-mod="4"] .mod-header{background:#7030A0;}
+    .module[data-mod="5"] .mod-header{background:#833C00;}
+    .module[data-mod="6"] .mod-header{background:#C00000;}
+    .module[data-mod="1"] .mod-header:hover{background:#162a4a;}
+    .module[data-mod="2"] .mod-header:hover{background:#a04a0d;}
+    .module[data-mod="3"] .mod-header:hover{background:#2a401a;}
+    .module[data-mod="4"] .mod-header:hover{background:#5a2580;}
+    .module[data-mod="5"] .mod-header:hover{background:#622d00;}
+    .module[data-mod="6"] .mod-header:hover{background:#960000;}
+
+    .mod-overview{
+      padding:.75rem 1.25rem;background:var(--blue-lt);
+      border-bottom:1px solid var(--blue-mid);
+      font-size:.83rem;color:var(--navy);line-height:1.6;font-style:italic;
     }
 
-    /* Stats card */
-    .stats-card {
-      background: var(--bg2); border: 1px solid var(--border);
-      border-radius: 6px; padding: 1.5rem;
-      min-width: 200px;
-    }
-    .stat-row { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
-    .stat-row:last-child { border-bottom: none; }
-    .stat-label { font-size: 0.75rem; color: var(--text3); }
-    .stat-val { font-family: var(--mono); font-size: 0.85rem; font-weight: 600; color: var(--accent2); }
+    /* ── Lessons ── */
+    .lessons{display:none;flex-direction:column;}
+    .module.open .lessons{display:flex;}
 
-    /* ── Divider ── */
-    .divider { max-width: 1100px; margin: 0 auto; height: 1px; background: var(--border); }
+    .lesson{border-top:1px solid var(--brd);}
+    .lesson-header{
+      display:flex;align-items:center;gap:.9rem;
+      padding:.8rem 1.25rem;cursor:pointer;
+      transition:background .15s;
+    }
+    .lesson-header:hover{background:var(--grey-bg);}
+    .lesson-num{
+      font-size:.68rem;font-weight:600;letter-spacing:.06em;
+      color:var(--blue);background:var(--blue-lt);
+      padding:.18rem .5rem;border-radius:2px;min-width:2.8rem;text-align:center;
+      border:1px solid var(--blue-mid);flex-shrink:0;
+    }
+    .lesson-title-wrap{flex:1;}
+    .lesson-title{font-size:.9rem;font-weight:500;color:var(--navy);}
+    .lesson-type{font-size:.7rem;color:var(--text3);margin-top:.1rem;}
+    .lesson-dur{
+      font-size:.72rem;color:var(--text3);
+      background:var(--grey-bg);border:1px solid var(--grey-brd);
+      padding:.15rem .5rem;border-radius:2px;white-space:nowrap;flex-shrink:0;
+    }
+    .lesson-chev{font-size:.7rem;color:var(--text3);transition:transform .3s;flex-shrink:0;}
+    .lesson.open .lesson-chev{transform:rotate(180deg);}
 
-    /* ── Layout ── */
-    .page-body {
-      max-width: 1100px; margin: 0 auto;
-      padding: 3rem 2rem;
-      display: grid; grid-template-columns: 260px 1fr; gap: 3rem; align-items: start;
-    }
-    @media (max-width: 900px) { .page-body { grid-template-columns: 1fr; } }
+    /* ── Lesson detail panel (Word doc style) ── */
+    .lesson-detail{display:none;padding:.75rem 1.25rem 1.25rem 1.25rem;background:#FAFCFF;border-top:1px solid var(--blue-mid);}
+    .lesson.open .lesson-detail{display:block;}
 
-    /* ── Sidebar ── */
-    .sidebar { position: sticky; top: 70px; }
-    .sidebar-title { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text3); margin-bottom: 1rem; }
-    .sidebar-nav { list-style: none; }
-    .sidebar-nav li { border-bottom: 1px solid var(--border); }
-    .sidebar-nav a {
-      display: flex; align-items: center; gap: 0.6rem;
-      padding: 0.65rem 0; font-size: 0.82rem; color: var(--text2);
-      transition: color .2s; cursor: pointer;
-    }
-    .sidebar-nav a:hover, .sidebar-nav a.active { color: var(--accent2); }
-    .sidebar-nav a.active { font-weight: 600; }
-    .sidebar-num { font-family: var(--mono); font-size: 0.65rem; color: var(--text3); min-width: 1.4rem; }
+    .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
+    @media(max-width:580px){.detail-grid{grid-template-columns:1fr;}}
 
-    /* ── Main content ── */
-    .module-list { display: flex; flex-direction: column; gap: 1rem; }
+    .detail-block{border-radius:3px;padding:.85rem 1rem;border:1px solid;}
+    .detail-block.full{grid-column:1/-1;}
 
-    /* Module accordion */
-    .module {
-      background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; overflow: hidden;
-    }
-    .module-header {
-      display: flex; align-items: center; gap: 1rem;
-      padding: 1.25rem 1.5rem; cursor: pointer;
-      transition: background .2s;
-      user-select: none;
-    }
-    .module-header:hover { background: var(--bg3); }
-    .module-num {
-      font-family: var(--mono); font-size: 0.7rem; font-weight: 600;
-      background: var(--bg3); border: 1px solid var(--border2);
-      color: var(--accent); padding: 0.2rem 0.5rem; border-radius: 3px; min-width: 2.2rem; text-align: center;
-    }
-    .module-title-wrap { flex: 1; }
-    .module-title { font-size: 1rem; font-weight: 700; color: var(--text); }
-    .module-sub { font-size: 0.75rem; color: var(--text3); margin-top: 0.15rem; }
-    .module-lesson-count {
-      font-family: var(--mono); font-size: 0.65rem; color: var(--text3);
-      background: var(--bg); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 2px;
-    }
-    .module-chevron {
-      font-size: 0.8rem; color: var(--text3); transition: transform .3s; flex-shrink: 0;
-    }
-    .module.open .module-chevron { transform: rotate(180deg); }
+    /* Colours matching Word doc exactly */
+    .db-obj{background:var(--green-bg);border-color:var(--green-brd);}
+    .db-top{background:var(--blue-lt);border-color:var(--blue-mid);}
+    .db-ref{background:var(--grey-bg);border-color:var(--grey-brd);}
+    .db-note{background:var(--yellow-bg);border-color:var(--yellow-brd);}
 
-    .module-overview {
-      padding: 0 1.5rem 1rem;
-      font-size: 0.85rem; color: var(--text2); line-height: 1.6;
-      font-style: italic;
+    .detail-label{
+      font-size:.63rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+      margin-bottom:.55rem;
     }
+    .db-obj  .detail-label{color:#375623;}
+    .db-top  .detail-label{color:var(--navy);}
+    .db-ref  .detail-label{color:#555;}
+    .db-note .detail-label{color:#7A4010;}
 
-    /* Lesson list inside module */
-    .lessons { display: none; flex-direction: column; gap: 0; }
-    .module.open .lessons { display: flex; }
-
-    .lesson {
-      border-top: 1px solid var(--border);
-      cursor: pointer;
+    .detail-block ul{list-style:none;padding:0;}
+    .detail-block ul li{
+      font-size:.82rem;color:var(--text2);line-height:1.55;
+      padding:.22rem 0 .22rem 1rem;position:relative;
     }
-    .lesson-header {
-      display: flex; align-items: center; gap: 1rem;
-      padding: 0.9rem 1.5rem; transition: background .2s;
-    }
-    .lesson-header:hover { background: var(--bg3); }
-    .lesson-num { font-family: var(--mono); font-size: 0.7rem; color: var(--text3); min-width: 2.5rem; }
-    .lesson-title-wrap { flex: 1; }
-    .lesson-title { font-size: 0.9rem; font-weight: 600; color: var(--text); }
-    .lesson-type { font-size: 0.72rem; color: var(--text3); margin-top: 0.1rem; }
-    .lesson-dur { font-family: var(--mono); font-size: 0.7rem; color: var(--text3); }
-    .lesson-chevron { font-size: 0.7rem; color: var(--text3); transition: transform .3s; }
-    .lesson.open .lesson-chevron { transform: rotate(180deg); }
+    .detail-block ul li::before{content:'•';position:absolute;left:0;font-size:.7rem;top:.3rem;}
+    .db-obj ul li::before{color:#375623;}
+    .db-top ul li::before{color:var(--blue);}
+    .db-ref p,.db-note p{font-size:.82rem;color:var(--text2);line-height:1.6;}
+    .db-ref p{font-family:monospace;font-size:.77rem;color:#555;}
 
-    /* Lesson detail panel */
-    .lesson-detail { display: none; padding: 0 1.5rem 1.25rem 5rem; background: var(--bg); }
-    .lesson.open .lesson-detail { display: block; }
+    /* ── Assessment table ── */
+    .assess-table{width:100%;border-collapse:collapse;background:var(--white);font-size:.83rem;margin-bottom:2rem;}
+    .assess-table th,.assess-table td{border:1px solid var(--brd);padding:.55rem .85rem;text-align:left;}
+    .assess-table th{background:var(--navy);color:#fff;font-weight:500;font-size:.72rem;letter-spacing:.05em;}
+    .assess-table tr:nth-child(even) td{background:var(--grey-bg);}
+    .assess-table td:last-child{font-weight:500;color:var(--navy);}
 
-    .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    @media (max-width: 620px) { .detail-grid { grid-template-columns: 1fr; } }
+    /* ── Reg reference grid ── */
+    .reg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.75rem;margin-bottom:2rem;}
+    .reg-card{background:var(--white);border:1px solid var(--brd);border-radius:3px;padding:.85rem 1rem;border-left:3px solid var(--blue);}
+    .reg-name{font-size:.78rem;font-weight:600;color:var(--navy);margin-bottom:.3rem;}
+    .reg-desc{font-size:.76rem;color:var(--text3);line-height:1.5;}
 
-    .detail-block {
-      background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; padding: 1rem 1.25rem;
+    /* ── Sticky sidebar ── */
+    .layout{display:grid;grid-template-columns:220px 1fr;gap:2rem;align-items:start;}
+    @media(max-width:860px){.layout{grid-template-columns:1fr;}}
+    .sidebar{position:sticky;top:62px;}
+    .sidebar-title{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text3);margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid var(--brd);}
+    .sidebar-nav{list-style:none;}
+    .sidebar-nav li a{
+      display:flex;align-items:center;gap:.5rem;
+      padding:.5rem .25rem;font-size:.82rem;color:var(--text2);
+      border-bottom:1px solid var(--grey-bg);cursor:pointer;
+      transition:color .2s;
     }
-    .detail-block.full { grid-column: 1 / -1; }
-    .detail-label {
-      font-family: var(--mono); font-size: 0.63rem; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 0.6rem;
+    .sidebar-nav li a:hover,.sidebar-nav li a.active{color:var(--blue);font-weight:500;}
+    .mod-dot{
+      width:10px;height:10px;border-radius:50%;flex-shrink:0;
     }
-    .detail-block ul { list-style: none; padding: 0; }
-    .detail-block ul li {
-      font-size: 0.82rem; color: var(--text2); padding: 0.2rem 0;
-      padding-left: 0.9rem; position: relative;
-    }
-    .detail-block ul li::before { content: '›'; position: absolute; left: 0; color: var(--accent); }
-    .detail-block p { font-size: 0.82rem; color: var(--text2); line-height: 1.6; }
-    .detail-block .ref { font-family: var(--mono); font-size: 0.72rem; color: var(--text3); line-height: 1.5; }
-    .note-block {
-      background: rgba(192,106,32,.07); border: 1px solid rgba(192,106,32,.2);
-    }
-    .note-block .detail-label { color: var(--accent3); }
-
-    /* ── Progress bar ── */
-    .progress-section { padding: 2rem 2rem 0; max-width: 1100px; margin: 0 auto; }
-    .prog-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text3); margin-bottom: 0.5rem; }
-    .prog-bar { height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
-    .prog-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent3)); border-radius: 2px; transition: width .4s; }
-
-    /* ── Reg ref section ── */
-    .reg-section { max-width: 1100px; margin: 0 auto; padding: 0 2rem 3rem; }
-    .reg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.75rem; margin-top: 1.5rem; }
-    .reg-card {
-      background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; padding: 0.9rem 1rem;
-    }
-    .reg-name { font-family: var(--mono); font-size: 0.7rem; font-weight: 600; color: var(--accent2); margin-bottom: 0.3rem; }
-    .reg-desc { font-size: 0.76rem; color: var(--text3); line-height: 1.5; }
-
-    .eyebrow { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
-    .sec-title { font-size: 1.4rem; font-weight: 700; color: var(--text); margin-bottom: 1rem; }
-    .sec-title em { font-style: italic; color: var(--accent2); }
 
     /* ── Footer ── */
-    footer {
-      border-top: 1px solid var(--border); max-width: 1100px; margin: 2rem auto 0;
-      padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 0.75rem; font-size: 0.75rem; color: var(--text3);
+    footer{
+      border-top:1px solid var(--brd);margin-top:2rem;padding:1.2rem 0;
+      display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;
+      font-size:.74rem;color:var(--text3);
     }
-    footer a { color: var(--text2); transition: color .2s; }
-    footer a:hover { color: var(--accent2); }
-    @media (max-width: 720px) { .nav-links { display: none; } .page-body { padding: 2rem 1.25rem; } }
+    footer a{color:var(--blue);transition:color .2s;}
+    footer a:hover{color:var(--navy);}
+
+    /* ── Print hint ── */
+    .print-btn{
+      display:inline-flex;align-items:center;gap:.4rem;
+      font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
+      padding:.35rem .85rem;border:1px solid var(--blue);color:var(--blue);
+      border-radius:3px;cursor:pointer;background:transparent;
+      transition:background .2s,color .2s;
+    }
+    .print-btn:hover{background:var(--blue);color:#fff;}
+
+    @media print{
+      #topnav,.breadcrumb,.sidebar,.print-btn{display:none!important;}
+      .layout{grid-template-columns:1fr;}
+      .module.open .lessons,.lessons{display:flex!important;}
+      .lesson.open .lesson-detail,.lesson-detail{display:block!important;}
+      .mod-chevron,.lesson-chev{display:none;}
+      body{background:#fff;}
+    }
   </style>
 </head>
 <body>
 
-<!-- ── Nav ── -->
-<nav>
-  <a href="https://zubayar.no" class="nav-logo"><span>MZ</span>.</a>
-  <ul class="nav-links">
-    <li><a href="https://zubayar.no/#home">Home</a></li>
+<!-- ── Site Nav ── -->
+<nav id="topnav">
+  <a href="https://zubayar.no" class="tn-logo">MZ<span>.</span></a>
+  <ul class="tn-links">
+    <li><a href="https://zubayar.no">Home</a></li>
     <li><a href="https://zubayar.no/#skills">Skills</a></li>
     <li><a href="https://zubayar.no/#certs">Certs</a></li>
     <li><a href="https://zubayar.no/#projects">Projects</a></li>
@@ -261,459 +334,325 @@
     <li><a href="/learning/" class="active">Learning</a></li>
     <li><a href="https://zubayar.no/#contact">Contact</a></li>
   </ul>
-  <a href="https://zubayar.no/assets/docs/Muhammad_Zubayar_CV.pdf" class="nav-cv" target="_blank">Download CV ↗</a>
+  <a href="https://zubayar.no/assets/docs/Muhammad_Zubayar_CV.pdf" target="_blank" class="tn-cv">Download CV ↗</a>
 </nav>
 
 <!-- ── Breadcrumb ── -->
 <div class="breadcrumb">
-  <a href="https://zubayar.no">zubayar.no</a>
-  <span> / </span><a href="/learning/">Learning</a>
-  <span> / </span><a href="/learning/uav/">UAV</a>
-  <span> / A1/A3 Course</span>
+  <a href="https://zubayar.no">zubayar.no</a> /
+  <a href="/learning/">Learning</a> /
+  <a href="/learning/uav/">UAV</a> /
+  A1/A3 Course Curriculum
 </div>
 
-<!-- ── Hero ── -->
-<div class="hero">
-  <div>
-    <p class="hero-eyebrow">🚁 UAV · EASA Open Category · Demo Curriculum</p>
-    <h1>A1/A3 Remote Pilot<br><em>Certificate.</em></h1>
-    <p class="hero-desc">
-      A full breakdown of the EASA Open Category A1/A3 theoretical knowledge course —
-      6 modules, 20 lessons, built on EU Regulation 2019/947.
-      This is a demo curriculum sample reflecting the actual certification syllabus.
-    </p>
-    <div class="hero-chips">
-      <span class="chip">EU Reg 2019/947</span>
-      <span class="chip">EU Reg 2019/945</span>
-      <span class="chip">EASA Easy Access Rules 2024</span>
-      <span class="chip">Open Category</span>
-      <span class="chip">Theory Exam</span>
+<!-- ── Page ── -->
+<div class="page">
+
+  <!-- Cover -->
+  <div class="cover">
+    <p class="cover-eyebrow">🚁 UAV · EASA Open Category · Educational Demo</p>
+    <h1>A1 / A3 Remote Pilot Certificate</h1>
+    <p class="cover-sub">Full course curriculum based on EU Regulation 2019/947 &amp; 2019/945 — 6 modules, 20 lessons, updated for 2024–2025 requirements.</p>
+    <div class="cover-chips">
+      <span class="cover-chip">EU Reg 2019/947</span>
+      <span class="cover-chip">EU Reg 2019/945</span>
+      <span class="cover-chip">EASA Easy Access Rules 2024</span>
+      <span class="cover-chip">Open Category</span>
+      <span class="cover-chip">Theory Exam Prep</span>
+    </div>
+    <div class="cover-stats">
+      <div class="cstat"><div class="cstat-n">6</div><div class="cstat-l">Modules</div></div>
+      <div class="cstat"><div class="cstat-n">20</div><div class="cstat-l">Lessons</div></div>
+      <div class="cstat"><div class="cstat-n">~5 hrs</div><div class="cstat-l">Duration</div></div>
+      <div class="cstat"><div class="cstat-n">40</div><div class="cstat-l">Exam Qs</div></div>
+      <div class="cstat"><div class="cstat-n">75%</div><div class="cstat-l">Pass Mark</div></div>
+      <div class="cstat"><div class="cstat-n">5 yrs</div><div class="cstat-l">Cert Valid</div></div>
     </div>
   </div>
-  <div class="stats-card">
-    <div class="stat-row"><span class="stat-label">Modules</span><span class="stat-val">6</span></div>
-    <div class="stat-row"><span class="stat-label">Lessons</span><span class="stat-val">20</span></div>
-    <div class="stat-row"><span class="stat-label">Total Duration</span><span class="stat-val">~5 hrs</span></div>
-    <div class="stat-row"><span class="stat-label">Exam Format</span><span class="stat-val">40 Qs · 30 min</span></div>
-    <div class="stat-row"><span class="stat-label">Pass Mark</span><span class="stat-val">75 %</span></div>
-    <div class="stat-row"><span class="stat-label">Certificate</span><span class="stat-val">5 years</span></div>
-  </div>
-</div>
 
-<div class="divider"></div>
+  <!-- Layout: sidebar + main -->
+  <div class="layout">
 
-<!-- ── Body ── -->
-<div class="page-body">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <p class="sidebar-title">Jump to module</p>
+      <ul class="sidebar-nav" id="sidebarNav">
+        <li><a onclick="jumpTo('m1',this)"><span class="mod-dot" style="background:#1F3864"></span>01 — Introduction</a></li>
+        <li><a onclick="jumpTo('m2',this)"><span class="mod-dot" style="background:#C55A11"></span>02 — Drone Regulations</a></li>
+        <li><a onclick="jumpTo('m3',this)"><span class="mod-dot" style="background:#375623"></span>03 — Air Safety</a></li>
+        <li><a onclick="jumpTo('m4',this)"><span class="mod-dot" style="background:#7030A0"></span>04 — Flight Procedures</a></li>
+        <li><a onclick="jumpTo('m5',this)"><span class="mod-dot" style="background:#833C00"></span>05 — Mock Examinations</a></li>
+        <li><a onclick="jumpTo('m6',this)"><span class="mod-dot" style="background:#C00000"></span>06 — Final Examination</a></li>
+      </ul>
+      <br>
+      <button class="print-btn" onclick="window.print()">🖨 Print / Save PDF</button>
+    </aside>
 
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <p class="sidebar-title">Course Modules</p>
-    <ul class="sidebar-nav" id="sidebarNav">
-      <li><a onclick="scrollToModule('m1')"><span class="sidebar-num">01</span>Introduction</a></li>
-      <li><a onclick="scrollToModule('m2')"><span class="sidebar-num">02</span>Drone Regulations</a></li>
-      <li><a onclick="scrollToModule('m3')"><span class="sidebar-num">03</span>Air Safety</a></li>
-      <li><a onclick="scrollToModule('m4')"><span class="sidebar-num">04</span>Flight Procedures</a></li>
-      <li><a onclick="scrollToModule('m5')"><span class="sidebar-num">05</span>Mock Examinations</a></li>
-      <li><a onclick="scrollToModule('m6')"><span class="sidebar-num">06</span>Final Examination</a></li>
-    </ul>
-  </aside>
+    <!-- Main content -->
+    <main>
 
-  <!-- Main -->
-  <main>
-    <div class="module-list" id="moduleList">
+      <!-- Course Overview -->
+      <h2 class="sec-title">Course Overview <span>Summary</span></h2>
+      <table class="overview-table">
+        <tbody>
+          <tr><td>Regulatory Basis</td><td>EU Regulation 2019/947 (operations) &amp; EU Regulation 2019/945 (equipment)</td></tr>
+          <tr><td>Target Audience</td><td>New drone pilots; recreational &amp; commercial operators; EU residents aged 16+</td></tr>
+          <tr><td>Delivery Format</td><td>Online self-paced video lectures, interactive quizzes, and mock examinations</td></tr>
+          <tr><td>Total Duration</td><td>Approx. 4–5 hours of learning content + 1 hour for mock exams</td></tr>
+          <tr><td>Prerequisites</td><td>None — no prior aviation knowledge required</td></tr>
+          <tr><td>Assessment</td><td>40-question online theory exam; 75 % pass mark; unlimited re-sits</td></tr>
+          <tr><td>Certificate</td><td>National NAA A1/A3 Remote Pilot Certificate; valid 5 years from issue date</td></tr>
+          <tr><td>Applicable From</td><td>1 January 2024 (2024 requirements update)</td></tr>
+        </tbody>
+      </table>
 
-      <!-- ── Module 1 ── -->
-      <div class="module" id="m1">
-        <div class="module-header" onclick="toggleModule(this)">
-          <span class="module-num">01</span>
-          <div class="module-title-wrap">
-            <div class="module-title">Introduction</div>
-            <div class="module-sub">Course overview · exam format · certificate validity</div>
-          </div>
-          <span class="module-lesson-count">1 lesson</span>
-          <span class="module-chevron">▼</span>
-        </div>
-        <p class="module-overview">Welcomes the learner, explains the course structure, the EASA open-category framework, and the competencies required to pass the A1/A3 online theory exam.</p>
-        <div class="lessons">
-          <!-- Lesson 1.1 -->
-          <div class="lesson">
-            <div class="lesson-header" onclick="toggleLesson(this)">
-              <span class="lesson-num">1.1</span>
-              <div class="lesson-title-wrap">
-                <div class="lesson-title">Welcome &amp; Course Overview</div>
-                <div class="lesson-type">Video Lecture</div>
-              </div>
-              <span class="lesson-dur">~4 min</span>
-              <span class="lesson-chevron">▼</span>
+      <!-- Learning Outcomes -->
+      <h2 class="sec-title">Overall Learning Outcomes <span>On completion</span></h2>
+      <div class="outcomes">
+        <ul>
+          <li>Apply the relevant provisions of EU Regulations 2019/947 and 2019/945 to plan and conduct legal drone flights in the Open Category</li>
+          <li>Identify the correct operational subcategory (A1 or A3) for any given flight scenario</li>
+          <li>Conduct thorough pre-flight, in-flight, and post-flight procedures in accordance with EASA standards</li>
+          <li>Assess meteorological conditions and determine their impact on safe UAS operation</li>
+          <li>Explain the technical principles governing multirotor UAS performance, power systems, and failure modes</li>
+          <li>Recognise and mitigate human-factor risks that contribute to UAS incidents</li>
+          <li>Navigate relevant airspace and use geo-awareness tools to check restrictions before flight</li>
+          <li>Fulfil all legal obligations relating to privacy, data protection, liability, insurance, and incident reporting</li>
+          <li>Pass the EASA A1/A3 online theory examination with a score of ≥ 75 %</li>
+        </ul>
+      </div>
+
+      <!-- ════════════ MODULES ════════════ -->
+      <h2 class="sec-title">Course Modules <span>6 modules · 20 lessons</span></h2>
+      <div class="modules">
+
+        <!-- ── MODULE 1 ── -->
+        <div class="module" id="m1" data-mod="1">
+          <div class="mod-header" onclick="toggleMod(this)">
+            <div class="mod-num">01</div>
+            <div class="mod-title-wrap">
+              <div class="mod-title">Introduction</div>
+              <div class="mod-sub">Course overview · exam format · certificate validity</div>
             </div>
-            <div class="lesson-detail">
-              <div class="detail-grid">
-                <div class="detail-block">
-                  <p class="detail-label">Learning Objectives</p>
-                  <ul>
+            <span class="mod-badge">1 lesson</span>
+            <span class="mod-chevron">▼</span>
+          </div>
+          <div class="mod-overview">Welcomes the learner, explains the course structure, the EASA open-category framework, and the competencies required to pass the A1/A3 online theory exam.</div>
+          <div class="lessons">
+            <div class="lesson">
+              <div class="lesson-header" onclick="toggleLesson(this)">
+                <span class="lesson-num">1.1</span>
+                <div class="lesson-title-wrap"><div class="lesson-title">Welcome &amp; Course Overview</div><div class="lesson-type">Video Lecture</div></div>
+                <span class="lesson-dur">~4 min</span><span class="lesson-chev">▼</span>
+              </div>
+              <div class="lesson-detail">
+                <div class="detail-grid">
+                  <div class="detail-block db-obj"><p class="detail-label">Learning Objectives</p><ul>
                     <li>Understand the purpose and scope of the EASA A1/A3 certificate</li>
                     <li>Navigate the course structure and know what to expect in each module</li>
                     <li>Identify the final online theory exam requirements (minimum 75% pass mark)</li>
-                  </ul>
-                </div>
-                <div class="detail-block">
-                  <p class="detail-label">Key Topics</p>
-                  <ul>
+                  </ul></div>
+                  <div class="detail-block db-top"><p class="detail-label">Key Topics</p><ul>
                     <li>What is EASA and why does it regulate drones?</li>
-                    <li>The three UAS operation categories: Open, Specific, Certified</li>
+                    <li>Three UAS operation categories: Open, Specific, Certified</li>
                     <li>Where the A1/A3 certificate fits within the Open Category</li>
-                    <li>Exam format: 40 MCQ, 30 min, 75% required</li>
-                    <li>Certificate validity: 5 years</li>
-                  </ul>
-                </div>
-                <div class="detail-block full">
-                  <p class="detail-label">EASA Reference</p>
-                  <p class="ref">EU Regulation 2019/947 – Part UAS.OPEN.020 · EASA Easy Access Rules for UAS (Rev. July 2024)</p>
-                </div>
-                <div class="detail-block note-block full">
-                  <p class="detail-label">Instructor Notes</p>
-                  <p>Keep this segment motivational. Remind students that the exam is online and self-paced. Encourage them to attempt the mock exams before the final.</p>
+                    <li>Exam format: 40 MCQ, 30 min, 75% pass mark required</li>
+                    <li>Certificate validity: 5 years from issue date</li>
+                  </ul></div>
+                  <div class="detail-block db-ref full"><p class="detail-label">EASA Reference</p><p>EU Regulation 2019/947 – Part UAS.OPEN.020 · EASA Easy Access Rules for UAS (Rev. July 2024)</p></div>
+                  <div class="detail-block db-note full"><p class="detail-label">Instructor Notes</p><p>Keep this segment motivational. Remind students that the exam is online and self-paced. Encourage them to attempt the mock exams before the final.</p></div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- ── Module 2 ── -->
-      <div class="module" id="m2">
-        <div class="module-header" onclick="toggleModule(this)">
-          <span class="module-num">02</span>
-          <div class="module-title-wrap">
-            <div class="module-title">Drone Regulations</div>
-            <div class="module-sub">EU legislative framework · subcategories · privacy · insurance · security</div>
+        <!-- ── MODULE 2 ── -->
+        <div class="module" id="m2" data-mod="2">
+          <div class="mod-header" onclick="toggleMod(this)">
+            <div class="mod-num">02</div>
+            <div class="mod-title-wrap">
+              <div class="mod-title">Drone Regulations</div>
+              <div class="mod-sub">EU legislative framework · subcategories · privacy · insurance · security</div>
+            </div>
+            <span class="mod-badge">9 lessons</span>
+            <span class="mod-chevron">▼</span>
           </div>
-          <span class="module-lesson-count">9 lessons</span>
-          <span class="module-chevron">▼</span>
-        </div>
-        <p class="module-overview">Covers the full EU legislative framework governing drone operations in the Open Category, including subcategory rules, operator responsibilities, privacy, liability, incident reporting, and security.</p>
-        <div class="lessons">
+          <div class="mod-overview">Covers the full EU legislative framework governing drone operations in the Open Category, including subcategory rules, operator responsibilities, privacy, liability, incident reporting, and security.</div>
+          <div class="lessons">
 
-          <div class="lesson">
-            <div class="lesson-header" onclick="toggleLesson(this)">
-              <span class="lesson-num">2.1</span>
-              <div class="lesson-title-wrap"><div class="lesson-title">Creation of Regulations</div><div class="lesson-type">Video Lecture</div></div>
-              <span class="lesson-dur">~5 min</span><span class="lesson-chevron">▼</span>
-            </div>
-            <div class="lesson-detail">
-              <div class="detail-grid">
-                <div class="detail-block"><p class="detail-label">Learning Objectives</p><ul><li>Explain why a harmonised EU drone regulatory framework was introduced</li><li>Identify the primary regulations and their entry-into-force dates</li><li>Distinguish between EU-level regulation and national NAA rules</li></ul></div>
-                <div class="detail-block"><p class="detail-label">Key Topics</p><ul><li>History of drone incidents that prompted EASA regulation</li><li>EU Regulation 2019/947 (operations) and 2019/945 (class marks)</li><li>Transition periods and the 2024 applicable requirements update</li><li>Role of National Competent Authorities</li><li>Key definitions: UAS, UA, remote pilot, operator</li></ul></div>
-                <div class="detail-block full"><p class="detail-label">EASA Reference</p><p class="ref">EU Reg 2019/947 Art. 1–3 · EU Reg 2019/945 Art. 1–4 · EASA Easy Access Rules (July 2024)</p></div>
-                <div class="detail-block note-block full"><p class="detail-label">Instructor Notes</p><p>Use a timeline graphic to illustrate the regulatory milestones from 2019 to 2024. Clarify that member states may add stricter local rules on top of EASA minimums.</p></div>
-              </div>
-            </div>
+            <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">2.1</span><div class="lesson-title-wrap"><div class="lesson-title">Creation of Regulations</div><div class="lesson-type">Video Lecture</div></div><span class="lesson-dur">~5 min</span><span class="lesson-chev">▼</span></div>
+            <div class="lesson-detail"><div class="detail-grid">
+              <div class="detail-block db-obj"><p class="detail-label">Learning Objectives</p><ul><li>Explain why a harmonised EU drone regulatory framework was introduced</li><li>Identify the primary regulations and their entry-into-force dates</li><li>Distinguish between EU-level regulation and national NAA rules</li></ul></div>
+              <div class="detail-block db-top"><p class="detail-label">Key Topics</p><ul><li>History of drone incidents that prompted EASA regulation</li><li>EU Regulation 2019/947 (operations) and 2019/945 (class marks)</li><li>Transition periods and the 2024 applicable requirements update</li><li>Role of National Competent Authorities (CAA, ENAC, LBA, etc.)</li><li>Key definitions: UAS, UA, remote pilot, operator</li></ul></div>
+              <div class="detail-block db-ref full"><p class="detail-label">EASA Reference</p><p>EU Reg 2019/947 Art. 1–3 · EU Reg 2019/945 Art. 1–4 · EASA Easy Access Rules (July 2024)</p></div>
+              <div class="detail-block db-note full"><p class="detail-label">Instructor Notes</p><p>Use a timeline graphic to illustrate the regulatory milestones from 2019 to 2024. Clarify that individual member states may add stricter local rules on top of EASA minimums.</p></div>
+            </div></div></div>
+
+            <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">2.2</span><div class="lesson-title-wrap"><div class="lesson-title">Open Category &amp; Subcategories</div><div class="lesson-type">Video Lecture + Interactive Quiz</div></div><span class="lesson-dur">~11 min</span><span class="lesson-chev">▼</span></div>
+            <div class="lesson-detail"><div class="detail-grid">
+              <div class="detail-block db-obj"><p class="detail-label">Learning Objectives</p><ul><li>Define the Open Category and state its max weight (≤25 kg) and altitude (≤120 m AGL) limits</li><li>Differentiate between subcategories A1, A2, and A3 in terms of allowed operations</li><li>Match UAS class marks (C0–C4) to each subcategory</li></ul></div>
+              <div class="detail-block db-top"><p class="detail-label">Key Topics</p><ul><li>Open Category definition: low-risk operations without authorisation</li><li>VLOS requirement (~500 m horizontal)</li><li>A1: C0/C1 — may overfly uninvolved persons (not assemblies)</li><li>A2: C2 — 30 m lateral (5 m in low-speed mode) from people</li><li>A3: C2/C3/C4 — ≥150 m from residential/commercial areas</li><li>Legacy drones and privately built aircraft rules</li><li>Operator registration requirements</li></ul></div>
+              <div class="detail-block db-ref full"><p class="detail-label">EASA Reference</p><p>EU Reg 2019/947 – UAS.OPEN.010, .020, .030, .040 · EU Reg 2019/945 Annexes</p></div>
+              <div class="detail-block db-note full"><p class="detail-label">Instructor Notes</p><p>Most examined topic. Use a decision-tree diagram for subcategory selection. Include scenario-based quiz questions. Learners often confuse subcategory with class mark — address directly.</p></div>
+            </div></div></div>
+
+            <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">2.3</span><div class="lesson-title-wrap"><div class="lesson-title">Aircraft Without Class Marking</div><div class="lesson-type">Video Lecture</div></div><span class="lesson-dur">~2 min</span><span class="lesson-chev">▼</span></div>
+            <div class="lesson-detail"><div class="detail-grid">
+              <div class="detail-block db-top full"><p class="detail-label">Key Topics</p><ul><li>Legacy (grandfathered) aircraft: purchased before 1 January 2024</li><li>Privately built UAS: rules by weight category</li><li>No CE class mark required — but operational conditions still fully apply</li><li>Compliance declaration via national registration portal</li></ul></div>
+              <div class="detail-block db-ref"><p class="detail-label">EASA Reference</p><p>EU Reg 2019/947 Art. 20 · EASA SC UAS.OPEN issue 2</p></div>
+              <div class="detail-block db-note"><p class="detail-label">Instructor Notes</p><p>Many learners own a legacy drone. Clarify that these aircraft are fully legal but the pilot must know which subcategory conditions apply by weight.</p></div>
+            </div></div></div>
+
+            <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">2.4</span><div class="lesson-title-wrap"><div class="lesson-title">Open A1 &amp; A3 Requirements in Detail</div><div class="lesson-type">Reference Summary</div></div><span class="lesson-dur">~1 min</span><span class="lesson-chev">▼</span></div>
+            <div class="lesson-detail"><div class="detail-grid">
+              <div class="detail-block db-top"><p class="detail-label">Key Topics</p><ul><li>A1: may overfly uninvolved persons — never over assemblies of people</li><li>A3: strict 150 m safe distance from built-up areas at all times</li><li>Minimum age: 16 years (12 with supervision in some member states)</li><li>Online A1/A3 training + theory exam mandatory</li><li>UAS operator registration + registration number displayed on drone</li></ul></div>
+              <div class="detail-block db-note"><p class="detail-label">Instructor Notes</p><p>Summarise as a quick-reference checklist. Clarify 'operator registration' vs 'drone registration' — a very common source of exam confusion.</p></div>
+              <div class="detail-block db-ref full"><p class="detail-label">EASA Reference</p><p>EU Reg 2019/947 – UAS.OPEN.020(4)(a), UAS.OPEN.040(2) · EASA FAQ 116457</p></div>
+            </div></div></div>
+
+            <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">2.5</span><div class="lesson-title-wrap"><div class="lesson-title">Responsibilities of Remote Pilot &amp; Operator</div><div class="lesson-type">Video Lecture</div></div><span class="lesson-dur">~7 min</span><span class="lesson-chev">▼</span></div>
+            <div class="lesson-detail"><div class="detail-grid">
+              <div class="detail-block db-obj"><p class="detail-label">Learning Objectives</p><ul><li>Distinguish between the responsibilities of the UAS operator and the remote pilot</li><li>List the pre-flight and in-flight obligations set out in the regulation</li><li>Identify what constitutes a lawful refusal to fly</li></ul></div>
+              <div class="detail-block db-top"><p class="detail-label">Key Topics</p><ul><li>Operator: registration, insurance, SOPs, geo-awareness</li><li>Remote pilot: fitness, familiarity with manual, pre-flight checks, VLOS</li><li>Duty of care to uninvolved persons and property</li><li>Prohibition: flying under alcohol or psychoactive substances</li><li>Right and duty to abandon a flight that poses unacceptable risk</li><li>Compliance with emergency services and law enforcement</li></ul></div>
+              <div class="detail-block db-ref full"><p class="detail-label">EASA Reference</p><p>EU Reg 2019/947 – UAS.OPEN.060, UAS.OPEN.070 · AMC1 UAS.OPEN.060</p></div>
+              <div class="detail-block db-note full"><p class="detail-label">Instructor Notes</p><p>Use real-world vignette scenarios. Ask: "You arrive on site and a temporary restriction has just been issued — what do you do?" Reinforce the pilot's authority and duty to refuse unsafe flights.</p></div>
+            </div></div></div>
+
+            <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">2.6</span><div class="lesson-title-wrap"><div class="lesson-title">Privacy &amp; Data Protection</div><div class="lesson-type">Video Lecture</div></div><span class="lesson-dur">~4 min</span><span class="lesson-chev">▼</span></div>
+            <div class="lesson-detail"><div class="detail-grid">
+              <div class="detail-block db-obj"><p class="detail-label">Learning Objectives</p><ul><li>Apply GDPR principles to drone photography and videography</li><li>Identify when consent is required and how to obtain it</li><li>Describe the rights of individuals captured on camera</li></ul></div>
+              <div class="detail-block db-top"><p class="detail-label">Key Topics</p><ul><li>GDPR applicability: faces, licence plates, private properties as personal data</li><li>Lawful basis: consent, legitimate interest, public task</li><li>Privacy by design: minimise → encrypt → delete</li><li>Data subject rights: access, erasure ('right to be forgotten')</li><li>National DPA guidance and variations</li></ul></div>
+              <div class="detail-block db-ref full"><p class="detail-label">EASA Reference</p><p>GDPR Art. 4, 6, 17 · EASA AMC1 UAS.OPEN.060(2)(b) · national DPA guidance</p></div>
+              <div class="detail-block db-note full"><p class="detail-label">Instructor Notes</p><p>Emphasise that GDPR enforcement is real and fines can be significant. Use a relatable scenario (wedding photographer drone). Practical checklist: inform → minimise → secure → delete.</p></div>
+            </div></div></div>
+
+            <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">2.7</span><div class="lesson-title-wrap"><div class="lesson-title">Liability &amp; Insurance</div><div class="lesson-type">Reference Summary</div></div><span class="lesson-dur">~1 min</span><span class="lesson-chev">▼</span></div>
+            <div class="lesson-detail"><div class="detail-grid">
+              <div class="detail-block db-top"><p class="detail-label">Key Topics</p><ul><li>EU Reg 785/2004: third-party liability mandatory for all drone operators</li><li>Cover: bodily injury and property damage caused by drone</li><li>Minimum cover varies by MTOM (≥ 0.5 SDR per kg)</li><li>Household/contents insurance rarely covers third-party drone liability</li><li>Verify insurance is valid before every flight</li></ul></div>
+              <div class="detail-block db-note"><p class="detail-label">Instructor Notes</p><p>Stress that most recreational pilots underestimate this requirement. A specialist drone insurance policy is typically needed and is often very affordable.</p></div>
+              <div class="detail-block db-ref full"><p class="detail-label">EASA Reference</p><p>EU Reg 785/2004 · EU Reg 2019/947 Art. 11 · national NAA guidance</p></div>
+            </div></div></div>
+
+            <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">2.8</span><div class="lesson-title-wrap"><div class="lesson-title">Incident &amp; Accident Reporting</div><div class="lesson-type">Video Lecture</div></div><span class="lesson-dur">~2 min</span><span class="lesson-chev">▼</span></div>
+            <div class="lesson-detail"><div class="detail-grid">
+              <div class="detail-block db-top"><p class="detail-label">Key Topics</p><ul><li>EU Reg 376/2014: mandatory vs voluntary occurrence reports</li><li>Mandatory reports: accidents (injury/death/significant damage), serious incidents</li><li>Report to NAA within 72 hours of a serious incident</li><li>Just culture: reports used to improve safety, not to punish pilots</li><li>ECCAIRS database and lessons-learned sharing</li></ul></div>
+              <div class="detail-block db-note"><p class="detail-label">Instructor Notes</p><p>Reassure students: voluntary reporting is protected by just-culture principles. Show the national reporting portal URL for the learner's country.</p></div>
+              <div class="detail-block db-ref full"><p class="detail-label">EASA Reference</p><p>EU Reg 376/2014 · EU Reg 2019/947 UAS.OPEN.060(i) · EASA Safety Management</p></div>
+            </div></div></div>
+
+            <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">2.9</span><div class="lesson-title-wrap"><div class="lesson-title">Security</div><div class="lesson-type">Video Lecture</div></div><span class="lesson-dur">~2 min</span><span class="lesson-chev">▼</span></div>
+            <div class="lesson-detail"><div class="detail-grid">
+              <div class="detail-block db-top"><p class="detail-label">Key Topics</p><ul><li>Drone misuse risks: surveillance, contraband, airspace collision</li><li>Remote ID: electronic identification broadcast requirement</li><li>Geo-awareness and geo-fencing compliance</li><li>Sensitive areas: airports, military zones, critical infrastructure</li><li>Reporting suspicious activity or unauthorised use of drones</li></ul></div>
+              <div class="detail-block db-note"><p class="detail-label">Instructor Notes</p><p>Link to the liability lesson: a stolen drone used maliciously can still expose the registered operator to legal risk.</p></div>
+              <div class="detail-block db-ref full"><p class="detail-label">EASA Reference</p><p>EU Reg 2019/947 UAS.OPEN.060(h) · EU Reg 2021/664 U-space · national security directives</p></div>
+            </div></div></div>
+
           </div>
+        </div><!-- /module 2 -->
 
-          <div class="lesson">
-            <div class="lesson-header" onclick="toggleLesson(this)">
-              <span class="lesson-num">2.2</span>
-              <div class="lesson-title-wrap"><div class="lesson-title">Open Category &amp; Subcategories</div><div class="lesson-type">Video Lecture + Interactive Quiz</div></div>
-              <span class="lesson-dur">~11 min</span><span class="lesson-chevron">▼</span>
+        <!-- ── MODULE 3 ── -->
+        <div class="module" id="m3" data-mod="3">
+          <div class="mod-header" onclick="toggleMod(this)">
+            <div class="mod-num">03</div>
+            <div class="mod-title-wrap">
+              <div class="mod-title">Air Safety</div>
+              <div class="mod-sub">Dangerous goods · meteorology · environment · UAS technical knowledge · human factors</div>
             </div>
-            <div class="lesson-detail">
-              <div class="detail-grid">
-                <div class="detail-block"><p class="detail-label">Learning Objectives</p><ul><li>Define the Open Category and state its max weight and altitude limits</li><li>Differentiate between subcategories A1, A2, and A3</li><li>Match UAS class marks (C0–C4) to each subcategory</li></ul></div>
-                <div class="detail-block"><p class="detail-label">Key Topics</p><ul><li>MTOM ≤ 25 kg · altitude ≤ 120 m AGL</li><li>VLOS requirement (~500 m horizontal)</li><li>A1: C0/C1 — may overfly uninvolved persons</li><li>A2: C2 — 30 m (or 5 m low-speed) from people</li><li>A3: C2/C3/C4 — ≥150 m from populated areas</li><li>Legacy & privately built aircraft rules</li><li>Operator registration requirements</li></ul></div>
-                <div class="detail-block full"><p class="detail-label">EASA Reference</p><p class="ref">EU Reg 2019/947 – UAS.OPEN.010, .020, .030, .040 · EU Reg 2019/945 Annexes</p></div>
-                <div class="detail-block note-block full"><p class="detail-label">Instructor Notes</p><p>Most examined topic. Use a decision-tree diagram for subcategory selection. Include scenario-based quiz questions. Learners often confuse subcategory with class mark — address directly.</p></div>
-              </div>
-            </div>
+            <span class="mod-badge">9 lessons</span>
+            <span class="mod-chevron">▼</span>
           </div>
+          <div class="mod-overview">Develops the knowledge required to operate safely in shared airspace — meteorological assessment, UAS technical understanding, airspace classification, and human-factor risk management.</div>
+          <div class="lessons">
 
-          <div class="lesson">
-            <div class="lesson-header" onclick="toggleLesson(this)">
-              <span class="lesson-num">2.3</span>
-              <div class="lesson-title-wrap"><div class="lesson-title">Aircraft Without Class Marking</div><div class="lesson-type">Video Lecture</div></div>
-              <span class="lesson-dur">~2 min</span><span class="lesson-chevron">▼</span>
-            </div>
-            <div class="lesson-detail">
-              <div class="detail-grid">
-                <div class="detail-block"><p class="detail-label">Key Topics</p><ul><li>Legacy (grandfathered) aircraft: purchased before 1 Jan 2024</li><li>Privately built UAS rules by weight</li><li>No CE class mark required — but operational conditions still apply</li><li>Compliance declaration via national registration portal</li></ul></div>
-                <div class="detail-block note-block"><p class="detail-label">Instructor Notes</p><p>Many learners own a legacy drone. Clarify these aircraft are fully legal but the pilot must know which subcategory conditions apply by weight.</p></div>
-              </div>
-            </div>
+            <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">3.1</span><div class="lesson-title-wrap"><div class="lesson-title">Dangerous Goods</div><div class="lesson-type">Video Lecture</div></div><span class="lesson-dur">~3 min</span><span class="lesson-chev">▼</span></div>
+            <div class="lesson-detail"><div class="detail-grid">
+              <div class="detail-block db-top"><p class="detail-label">Key Topics</p><ul><li>ICAO Dangerous Goods: LiPo batteries as Class 9 hazmat</li><li>Safe storage voltage: 3.8 V per cell for long-term storage</li><li>Risks: thermal runaway, fire, toxic fumes from damaged cells</li><li>Transport rules: hand-luggage LiPo limits on commercial aircraft</li><li>Payload considerations: sprayers, drop-delivery systems</li><li>Disposal: approved recycling centres only — never incinerate</li></ul></div>
+              <div class="detail-block db-note"><p class="detail-label">Instructor Notes</p><p>Use a LiPo fire video to reinforce safe handling. Provide a battery storage checklist as a downloadable resource.</p></div>
+              <div class="detail-block db-ref full"><p class="detail-label">EASA Reference</p><p>ICAO Doc 9284 Dangerous Goods Regulations · IATA DGR Section 2.3 · EU Reg 2019/947 UAS.OPEN.060(c)</p></div>
+            </div></div></div>
+
+            <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">3.2</span><div class="lesson-title-wrap"><div class="lesson-title">Meteorology for Drone Pilots</div><div class="lesson-type">Video Lecture + Quiz</div></div><span class="lesson-dur">~10 min</span><span class="lesson-chev">▼</span></div>
+            <div class="lesson-detail"><div class="detail-grid">
+              <div class="detail-block db-obj"><p class="detail-label">Learning Objectives</p><ul><li>Read a basic weather forecast and assess its implications for drone flight</li><li>Identify meteorological hazards that ground a flight</li><li>Interpret wind speed using the Beaufort scale</li></ul></div>
+              <div class="detail-block db-top"><p class="detail-label">Key Topics</p><ul><li>Wind: speed, direction, gusts, wind shear, turbulence</li><li>Beaufort scale: safe limits (most consumer drones: Beaufort 4–5 max)</li><li>Temperature effects: battery drops up to 30% below 0 °C</li><li>Fog, mist, cloud ceilings: VLOS reduction to unsafe levels</li><li>Density altitude: high temp + high altitude = reduced lift</li><li>Micro-weather: urban canyons, coastal thermals, rooftop turbulence</li><li>Sources: METAR, TAF, UAV Forecast, Windy app</li></ul></div>
+              <div class="detail-block db-ref full"><p class="detail-label">EASA Reference</p><p>EASA A1/A3 syllabus – Meteorology · ICAO Annex 3 (Meteorological Service) · UK CAA CAP722</p></div>
+              <div class="detail-block db-note full"><p class="detail-label">Instructor Notes</p><p>Heavily examined area. Use animated weather maps. Include a METAR interpretation exercise for go/no-go decision. Mention seasonal hazards: frost in winter, summer convection storms.</p></div>
+            </div></div></div>
+
+            <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">3.3</span><div class="lesson-title-wrap"><div class="lesson-title">Environment &amp; Nature</div><div class="lesson-type">Video Lecture</div></div><span class="lesson-dur">~7 min</span><span class="lesson-chev">▼</span></div>
+            <div class="lesson-detail"><div class="detail-grid">
+              <div class="detail-block db-top"><p class="detail-label">Key Topics</p><ul><li>Wildlife disturbance: nesting birds, marine mammals, livestock — buffer distances</li><li>Protected areas: Natura 2000, national parks, SSSI — additional restrictions</li><li>Noise pollution and community impact</li><li>Leave No Trace principles for drone pilots</li><li>Positive uses: wildlife surveys, disaster response mapping</li></ul></div>
+              <div class="detail-block db-note"><p class="detail-label">Instructor Notes</p><p>Balance the restrictions with positive environmental use cases. Encourage pre-flight research on local nature designations via national mapping portals.</p></div>
+              <div class="detail-block db-ref full"><p class="detail-label">EASA Reference</p><p>Habitats Directive 92/43/EEC · Birds Directive 2009/147/EC · EU Reg 2019/947 UAS.OPEN.060(d)</p></div>
+            </div></div></div>
+
+            <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">3.4</span><div class="lesson-title-wrap"><div class="lesson-title">UAS Technical Knowledge – Part 1: Aircraft Systems</div><div class="lesson-type">Video Lecture</div></div><span class="lesson-dur">~10 min</span><span class="lesson-chev">▼</span></div>
+            <div class="lesson-detail"><div class="detail-grid">
+              <div class="detail-block db-obj"><p class="detail-label">Learning Objectives</p><ul><li>Identify the main components of a multirotor UAS and explain their function</li><li>Describe the role of the flight controller and sensor suite</li></ul></div>
+              <div class="detail-block db-top"><p class="detail-label">Key Topics</p><ul><li>Multirotor configurations: quad/hex/octo and redundancy implications</li><li>ESCs, brushless motors, rotors and propellers</li><li>Flight controller: IMU, barometer, GPS, magnetometer (compass)</li><li>GNSS: GPS, GLONASS, BeiDou — positioning accuracy and multipath errors</li><li>Return-to-Home (RTH) and failsafe behaviours</li></ul></div>
+              <div class="detail-block db-ref full"><p class="detail-label">EASA Reference</p><p>EASA A1/A3 syllabus – UAS General Knowledge · AMC1 UAS.OPEN.060(1)(a)</p></div>
+              <div class="detail-block db-note full"><p class="detail-label">Instructor Notes</p><p>Use an exploded-view diagram of a typical consumer multirotor. Link sensor knowledge directly to pre-flight checks (compass calibration, GPS satellite count).</p></div>
+            </div></div></div>
+
+            <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">3.5</span><div class="lesson-title-wrap"><div class="lesson-title">UAS Technical Knowledge – Part 2: Power &amp; Communication</div><div class="lesson-type">Video Lecture</div></div><span class="lesson-dur">~11 min</span><span class="lesson-chev">▼</span></div>
+            <div class="lesson-detail"><div class="detail-grid">
+              <div class="detail-block db-top"><p class="detail-label">Key Topics</p><ul><li>LiPo battery: cell voltage (3.7 V nominal, 4.2 V max, 3.0 V min), capacity, C-rating</li><li>State of Charge (SoC) vs State of Health (SoH)</li><li>Battery management: cycle counting, storage charge, temperature care</li><li>Safe battery level for RTH: typically 30 % SoC; critical alert at 15 %</li><li>RC link: 2.4 GHz / 5.8 GHz frequencies, range, interference sources</li><li>Signal loss failsafe: RTH, hover, or land — configuring and testing</li><li>Electromagnetic interference near power lines and transformers</li></ul></div>
+              <div class="detail-block db-note"><p class="detail-label">Instructor Notes</p><p>Demonstrate a battery voltage checker. Provide a battery log template. Flying with a degraded battery is one of the most common causes of flyaways and crashes.</p></div>
+              <div class="detail-block db-ref full"><p class="detail-label">EASA Reference</p><p>EASA A1/A3 syllabus – UAS General Knowledge · manufacturer maintenance manuals</p></div>
+            </div></div></div>
+
+            <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">3.6</span><div class="lesson-title-wrap"><div class="lesson-title">UAS Technical Knowledge – Part 3: Performance &amp; Limitations</div><div class="lesson-type">Video Lecture + Quiz</div></div><span class="lesson-dur">~12 min</span><span class="lesson-chev">▼</span></div>
+            <div class="lesson-detail"><div class="detail-grid">
+              <div class="detail-block db-obj"><p class="detail-label">Learning Objectives</p><ul><li>Calculate the effect of environmental conditions on UAS endurance and range</li><li>Identify performance degradation thresholds that require a no-fly decision</li></ul></div>
+              <div class="detail-block db-top"><p class="detail-label">Key Topics</p><ul><li>Payload and wind effects on endurance and power draw</li><li>Cold reduces battery capacity by up to 30%; heat increases motor stress</li><li>Density altitude: thinner air reduces rotor efficiency at altitude</li><li>Obstacle avoidance: ultrasonic, stereo vision, ToF — and their blind spots</li><li>Maintenance: propeller inspection, motor bearing checks, firmware updates</li><li>End-of-life indicators: propeller cracks, motor vibration, battery swelling</li></ul></div>
+              <div class="detail-block db-ref full"><p class="detail-label">EASA Reference</p><p>EASA A1/A3 syllabus – UAS General Knowledge · EU Reg 2019/947 UAS.OPEN.060(b)</p></div>
+              <div class="detail-block db-note full"><p class="detail-label">Instructor Notes</p><p>Worked example: "Your drone is rated 30 min. It's 2 °C with a 20 km/h headwind and you have a gimbal payload. What is your realistic endurance?" Walk through the calculation step-by-step.</p></div>
+            </div></div></div>
+
+            <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">3.7</span><div class="lesson-title-wrap"><div class="lesson-title">Flying Over People</div><div class="lesson-type">Video Lecture</div></div><span class="lesson-dur">~4 min</span><span class="lesson-chev">▼</span></div>
+            <div class="lesson-detail"><div class="detail-grid">
+              <div class="detail-block db-obj"><p class="detail-label">Learning Objectives</p><ul><li>State the conditions under which overflight of uninvolved persons is permitted in A1</li><li>Explain why overflight of assemblies of people is prohibited in the Open Category</li></ul></div>
+              <div class="detail-block db-top"><p class="detail-label">Key Topics</p><ul><li>Definition: 'uninvolved person' vs 'participant'</li><li>Assembly of people: gathering where density prevents escape</li><li>A1 C0/C1: may overfly — never directly above head; never over assemblies</li><li>A2: 30 m lateral separation (5 m in low-speed mode)</li><li>A3: 150 m from all populated areas; no people in operational volume</li><li>Kinetic energy: KE = ½mv² — why both mass and speed matter for risk</li></ul></div>
+              <div class="detail-block db-ref full"><p class="detail-label">EASA Reference</p><p>EU Reg 2019/947 UAS.OPEN.020, UAS.OPEN.040 · EASA AMC1 UAS.OPEN.040(2)</p></div>
+              <div class="detail-block db-note full"><p class="detail-label">Instructor Notes</p><p>Use kinetic energy figures: a 250 g drone at 10 m/s carries ~12.5 J — comparable to a cricket ball. Reinforce that subcategory choice must reflect the environment before take-off.</p></div>
+            </div></div></div>
+
+            <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">3.8</span><div class="lesson-title-wrap"><div class="lesson-title">Airspace Classification &amp; Risks</div><div class="lesson-type">Video Lecture</div></div><span class="lesson-dur">~3 min</span><span class="lesson-chev">▼</span></div>
+            <div class="lesson-detail"><div class="detail-grid">
+              <div class="detail-block db-obj"><p class="detail-label">Learning Objectives</p><ul><li>Identify ICAO airspace classes and their relevance to drone flight in the Open Category</li><li>Use a drone app or NOTAM service to check airspace restrictions before flight</li></ul></div>
+              <div class="detail-block db-top"><p class="detail-label">Key Topics</p><ul><li>ICAO airspace classes A–G and typical altitude bands</li><li>CTR, TMA, ATZ — when notification or permission is required</li><li>Restricted, Prohibited, and Danger areas — hard no-fly zones</li><li>NOTAMs and Temporary Restricted Areas (TRAs)</li><li>Geo-zones: UAS geographic zones per EU Reg 2021/664 (U-space)</li><li>Apps: Drone Assist, Airmap, DJI FlySafe</li><li>Drone pilots give way to all manned aircraft without exception</li></ul></div>
+              <div class="detail-block db-ref full"><p class="detail-label">EASA Reference</p><p>ICAO Annex 11 · EU Reg 2021/664 (U-space) · national AIP and NOTAM services · EU Reg 2019/947 UAS.OPEN.060(f)</p></div>
+              <div class="detail-block db-note full"><p class="detail-label">Instructor Notes</p><p>Practical exercise: have students look up the airspace around their home address using a national geo-awareness tool and report back at the next session.</p></div>
+            </div></div></div>
+
+            <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">3.9</span><div class="lesson-title-wrap"><div class="lesson-title">Limitations of Human Factors</div><div class="lesson-type">Video Lecture</div></div><span class="lesson-dur">~6 min</span><span class="lesson-chev">▼</span></div>
+            <div class="lesson-detail"><div class="detail-grid">
+              <div class="detail-block db-obj"><p class="detail-label">Learning Objectives</p><ul><li>Identify the human-factor threats most commonly linked to UAS incidents</li><li>Apply IMSAFE and PAVE checklists to personal readiness assessment</li></ul></div>
+              <div class="detail-block db-top"><p class="detail-label">Key Topics</p><ul><li>SHELL model: Software, Hardware, Environment, Liveware (self &amp; others)</li><li>Situational awareness (SA) loss — the leading UAS incident precursor</li><li>Get-home-itis and mission pressure: commercial and social pressure to fly</li><li>Fatigue: 17 hrs awake ≈ 0.05% blood alcohol impairment equivalent</li><li>IMSAFE: Illness · Medication · Stress · Alcohol · Fatigue · Emotion</li><li>PAVE: Pilot · Aircraft · enVironment · External pressures</li><li>CRM adapted for two-person drone operations</li></ul></div>
+              <div class="detail-block db-ref full"><p class="detail-label">EASA Reference</p><p>EASA A1/A3 syllabus – Human Performance · ICAO Doc 9683 (Human Factors Training Manual) · EASA Safety Promotion</p></div>
+              <div class="detail-block db-note full"><p class="detail-label">Instructor Notes</p><p>Use a short anonymised accident report to illustrate how human factors chain together. The IMSAFE mnemonic is frequently examined — ensure students can recall all six items.</p></div>
+            </div></div></div>
+
           </div>
+        </div><!-- /module 3 -->
 
-          <div class="lesson">
-            <div class="lesson-header" onclick="toggleLesson(this)">
-              <span class="lesson-num">2.4</span>
-              <div class="lesson-title-wrap"><div class="lesson-title">Open A1 &amp; A3 Requirements in Detail</div><div class="lesson-type">Reference Summary</div></div>
-              <span class="lesson-dur">~1 min</span><span class="lesson-chevron">▼</span>
+        <!-- ── MODULE 4 ── -->
+        <div class="module" id="m4" data-mod="4">
+          <div class="mod-header" onclick="toggleMod(this)">
+            <div class="mod-num">04</div>
+            <div class="mod-title-wrap">
+              <div class="mod-title">Flight Procedures</div>
+              <div class="mod-sub">Pre-flight · in-flight · post-flight</div>
             </div>
-            <div class="lesson-detail">
-              <div class="detail-grid">
-                <div class="detail-block"><p class="detail-label">Key Topics</p><ul><li>A1: may overfly uninvolved persons — never over assemblies</li><li>A3: 150 m safe distance from built-up areas</li><li>Minimum age: 16 years (12 with supervision in some states)</li><li>Online A1/A3 training + theory exam mandatory</li><li>Operator registration + registration number displayed on drone</li></ul></div>
-                <div class="detail-block note-block"><p class="detail-label">Instructor Notes</p><p>Summarise as a quick-reference checklist. Clarify 'operator registration' vs 'drone registration' — a common source of confusion.</p></div>
-              </div>
-            </div>
+            <span class="mod-badge">3 lessons</span>
+            <span class="mod-chevron">▼</span>
           </div>
+          <div class="mod-overview">Standardised procedures for the complete flight cycle — planning and pre-flight checks, in-flight management of normal and abnormal situations, and post-flight actions.</div>
+          <div class="lessons">
 
-          <div class="lesson">
-            <div class="lesson-header" onclick="toggleLesson(this)">
-              <span class="lesson-num">2.5</span>
-              <div class="lesson-title-wrap"><div class="lesson-title">Responsibilities of Remote Pilot &amp; Operator</div><div class="lesson-type">Video Lecture</div></div>
-              <span class="lesson-dur">~7 min</span><span class="lesson-chevron">▼</span>
-            </div>
-            <div class="lesson-detail">
-              <div class="detail-grid">
-                <div class="detail-block"><p class="detail-label">Learning Objectives</p><ul><li>Distinguish operator responsibilities from remote pilot responsibilities</li><li>List pre-flight and in-flight obligations from the regulation</li><li>Identify what constitutes a lawful refusal to fly</li></ul></div>
-                <div class="detail-block"><p class="detail-label">Key Topics</p><ul><li>Operator: registration, insurance, SOPs, geo-awareness</li><li>Remote pilot: fitness, manual familiarity, pre-flight checks, VLOS</li><li>Duty of care to uninvolved persons and property</li><li>No flying under alcohol or psychoactive substances</li><li>Right and duty to abandon an unsafe flight</li></ul></div>
-                <div class="detail-block full"><p class="detail-label">EASA Reference</p><p class="ref">EU Reg 2019/947 – UAS.OPEN.060, UAS.OPEN.070 · AMC1 UAS.OPEN.060</p></div>
-                <div class="detail-block note-block full"><p class="detail-label">Instructor Notes</p><p>Use real-world vignette scenarios. Ask: 'You arrive on site and a temporary restriction has just been issued — what do you do?' Reinforce the pilot's authority to refuse unsafe flights.</p></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="lesson">
-            <div class="lesson-header" onclick="toggleLesson(this)">
-              <span class="lesson-num">2.6</span>
-              <div class="lesson-title-wrap"><div class="lesson-title">Privacy &amp; Data Protection</div><div class="lesson-type">Video Lecture</div></div>
-              <span class="lesson-dur">~4 min</span><span class="lesson-chevron">▼</span>
-            </div>
-            <div class="lesson-detail">
-              <div class="detail-grid">
-                <div class="detail-block"><p class="detail-label">Key Topics</p><ul><li>GDPR applicability to aerial imaging (faces, plates, properties)</li><li>Lawful basis: consent, legitimate interest, public task</li><li>Privacy by design: minimise, encrypt, delete</li><li>Data subject rights: access, erasure</li><li>National variations and DPA guidance</li></ul></div>
-                <div class="detail-block note-block"><p class="detail-label">Instructor Notes</p><p>Provide a practical checklist: inform → minimise → secure → delete. Use a relatable scenario (wedding photographer drone). GDPR fines are real.</p></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="lesson">
-            <div class="lesson-header" onclick="toggleLesson(this)">
-              <span class="lesson-num">2.7</span>
-              <div class="lesson-title-wrap"><div class="lesson-title">Liability &amp; Insurance</div><div class="lesson-type">Reference Summary</div></div>
-              <span class="lesson-dur">~1 min</span><span class="lesson-chevron">▼</span>
-            </div>
-            <div class="lesson-detail">
-              <div class="detail-grid">
-                <div class="detail-block"><p class="detail-label">Key Topics</p><ul><li>EU Reg 785/2004: third-party liability mandatory for operators</li><li>Cover: bodily injury, property damage</li><li>Minimum cover varies by MTOM</li><li>Household/contents insurance rarely covers drone liability</li></ul></div>
-                <div class="detail-block note-block"><p class="detail-label">Instructor Notes</p><p>Stress that most recreational pilots underestimate this requirement. A specialist drone insurance policy is typically needed.</p></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="lesson">
-            <div class="lesson-header" onclick="toggleLesson(this)">
-              <span class="lesson-num">2.8</span>
-              <div class="lesson-title-wrap"><div class="lesson-title">Incident &amp; Accident Reporting</div><div class="lesson-type">Video Lecture</div></div>
-              <span class="lesson-dur">~2 min</span><span class="lesson-chevron">▼</span>
-            </div>
-            <div class="lesson-detail">
-              <div class="detail-grid">
-                <div class="detail-block"><p class="detail-label">Key Topics</p><ul><li>EU Reg 376/2014: mandatory vs voluntary occurrence reports</li><li>Accidents: report to NAA within 72 hours</li><li>Voluntary near-miss reporting and just-culture principles</li><li>ECCAIRS database and safety lessons sharing</li></ul></div>
-                <div class="detail-block note-block"><p class="detail-label">Instructor Notes</p><p>Reassure students: voluntary reporting is protected by just-culture. Show the national reporting portal URL for the learner's country.</p></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="lesson">
-            <div class="lesson-header" onclick="toggleLesson(this)">
-              <span class="lesson-num">2.9</span>
-              <div class="lesson-title-wrap"><div class="lesson-title">Security</div><div class="lesson-type">Video Lecture</div></div>
-              <span class="lesson-dur">~2 min</span><span class="lesson-chevron">▼</span>
-            </div>
-            <div class="lesson-detail">
-              <div class="detail-grid">
-                <div class="detail-block"><p class="detail-label">Key Topics</p><ul><li>Drone misuse risks: surveillance, contraband, airspace collision</li><li>Remote ID broadcast requirement</li><li>Geo-awareness and geo-fencing compliance</li><li>Sensitive areas: airports, military, critical infrastructure</li><li>Reporting suspicious use of drones</li></ul></div>
-                <div class="detail-block note-block"><p class="detail-label">Instructor Notes</p><p>Link to the liability lesson: a stolen drone used maliciously can still expose the registered operator to legal risk.</p></div>
-              </div>
-            </div>
-          </div>
-
-        </div><!-- /lessons -->
-      </div><!-- /module 2 -->
-
-      <!-- ── Module 3 ── -->
-      <div class="module" id="m3">
-        <div class="module-header" onclick="toggleModule(this)">
-          <span class="module-num">03</span>
-          <div class="module-title-wrap">
-            <div class="module-title">Air Safety</div>
-            <div class="module-sub">Dangerous goods · meteorology · environment · UAS tech · human factors</div>
-          </div>
-          <span class="module-lesson-count">9 lessons</span>
-          <span class="module-chevron">▼</span>
-        </div>
-        <p class="module-overview">Develops the knowledge required to operate safely in shared airspace — meteorological assessment, UAS technical understanding, airspace classification, and human-factor risk management.</p>
-        <div class="lessons">
-
-          <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">3.1</span><div class="lesson-title-wrap"><div class="lesson-title">Dangerous Goods</div><div class="lesson-type">Video Lecture</div></div><span class="lesson-dur">~3 min</span><span class="lesson-chevron">▼</span></div>
-          <div class="lesson-detail"><div class="detail-grid"><div class="detail-block"><p class="detail-label">Key Topics</p><ul><li>ICAO Dangerous Goods: LiPo as Class 9 hazmat</li><li>Safe storage voltage (3.8 V/cell), thermal runaway risks</li><li>Transport rules: hand-luggage LiPo limits on aircraft</li><li>Payload considerations: sprayers, drop systems</li><li>Disposal: approved recycling centres only</li></ul></div><div class="detail-block note-block"><p class="detail-label">Instructor Notes</p><p>Use a LiPo fire video to reinforce safe handling. Provide a battery storage checklist as a downloadable resource.</p></div></div></div></div>
-
-          <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">3.2</span><div class="lesson-title-wrap"><div class="lesson-title">Meteorology for Drone Pilots</div><div class="lesson-type">Video Lecture + Quiz</div></div><span class="lesson-dur">~10 min</span><span class="lesson-chevron">▼</span></div>
-          <div class="lesson-detail"><div class="detail-grid"><div class="detail-block"><p class="detail-label">Learning Objectives</p><ul><li>Read a basic weather forecast and assess its flight implications</li><li>Identify meteorological hazards that ground a flight</li><li>Interpret wind speed using the Beaufort scale</li></ul></div><div class="detail-block"><p class="detail-label">Key Topics</p><ul><li>Wind: speed, gusts, wind shear, turbulence</li><li>Beaufort scale (consumer drones: Beaufort 4–5 max)</li><li>Temperature effects on battery (below 0 °C / above 40 °C)</li><li>Fog, mist, cloud ceilings and VLOS reduction</li><li>Density altitude: high temp + high altitude = reduced lift</li><li>Micro-weather: urban canyons, coastal thermals</li><li>Sources: METAR, TAF, UAV Forecast, Windy</li></ul></div><div class="detail-block note-block full"><p class="detail-label">Instructor Notes</p><p>Heavily examined area. Use animated weather maps. Include a METAR interpretation exercise for go/no-go decision. Mention seasonal hazards: frost, summer convection.</p></div></div></div></div>
-
-          <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">3.3</span><div class="lesson-title-wrap"><div class="lesson-title">Environment &amp; Nature</div><div class="lesson-type">Video Lecture</div></div><span class="lesson-dur">~7 min</span><span class="lesson-chevron">▼</span></div>
-          <div class="lesson-detail"><div class="detail-grid"><div class="detail-block"><p class="detail-label">Key Topics</p><ul><li>Wildlife disturbance: nesting birds, marine mammals, livestock</li><li>Protected areas: Natura 2000, national parks, SSSI</li><li>Noise pollution and community impact</li><li>Leave No Trace principles for drone pilots</li><li>Positive environmental uses: surveys, disaster response</li></ul></div><div class="detail-block note-block"><p class="detail-label">Instructor Notes</p><p>Balance restrictions with positive environmental use cases. Encourage pre-flight research on local nature designations.</p></div></div></div></div>
-
-          <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">3.4</span><div class="lesson-title-wrap"><div class="lesson-title">UAS Technical Knowledge – Part 1: Aircraft Systems</div><div class="lesson-type">Video Lecture</div></div><span class="lesson-dur">~10 min</span><span class="lesson-chevron">▼</span></div>
-          <div class="lesson-detail"><div class="detail-grid"><div class="detail-block"><p class="detail-label">Key Topics</p><ul><li>Multirotor configurations: quad/hex/octo and redundancy</li><li>ESCs, brushless motors, propellers</li><li>Flight controller: IMU, barometer, GPS, magnetometer</li><li>GNSS: GPS, GLONASS, BeiDou — multipath errors</li><li>RTH and failsafe behaviours</li></ul></div><div class="detail-block note-block"><p class="detail-label">Instructor Notes</p><p>Use an exploded-view diagram of a consumer multirotor. Link sensor knowledge to pre-flight checks (compass calibration, GPS lock count).</p></div></div></div></div>
-
-          <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">3.5</span><div class="lesson-title-wrap"><div class="lesson-title">UAS Technical Knowledge – Part 2: Power &amp; Communication</div><div class="lesson-type">Video Lecture</div></div><span class="lesson-dur">~11 min</span><span class="lesson-chevron">▼</span></div>
-          <div class="lesson-detail"><div class="detail-grid"><div class="detail-block"><p class="detail-label">Key Topics</p><ul><li>LiPo: cell voltage, capacity (mAh), C-rating</li><li>SoC vs SoH · cycle counting · temperature management</li><li>Safe battery level for RTH: ~30 % SoC</li><li>RC link: 2.4 GHz / 5.8 GHz, interference sources</li><li>Signal loss failsafe: RTH, hover, or land</li><li>Electromagnetic interference near power infrastructure</li></ul></div><div class="detail-block note-block"><p class="detail-label">Instructor Notes</p><p>Demonstrate a battery voltage checker. Provide a battery log template. Flying with a degraded battery is a common cause of flyaways.</p></div></div></div></div>
-
-          <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">3.6</span><div class="lesson-title-wrap"><div class="lesson-title">UAS Technical Knowledge – Part 3: Performance &amp; Limitations</div><div class="lesson-type">Video Lecture + Quiz</div></div><span class="lesson-dur">~12 min</span><span class="lesson-chevron">▼</span></div>
-          <div class="lesson-detail"><div class="detail-grid"><div class="detail-block"><p class="detail-label">Key Topics</p><ul><li>Payload and wind effects on endurance</li><li>Cold reduces battery capacity by up to 30 %</li><li>Obstacle avoidance: ultrasonic, stereo vision, ToF — blind spots</li><li>Maintenance: propeller inspection, motor bearings, firmware</li><li>End-of-life indicators: cracks, vibration, swelling</li></ul></div><div class="detail-block note-block"><p class="detail-label">Instructor Notes</p><p>Worked example: 30 min rated drone, 2 °C, 20 km/h headwind, gimbal payload — what is the realistic endurance? Walk through the calculation step-by-step.</p></div></div></div></div>
-
-          <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">3.7</span><div class="lesson-title-wrap"><div class="lesson-title">Flying Over People</div><div class="lesson-type">Video Lecture</div></div><span class="lesson-dur">~4 min</span><span class="lesson-chevron">▼</span></div>
-          <div class="lesson-detail"><div class="detail-grid"><div class="detail-block"><p class="detail-label">Key Topics</p><ul><li>Definition: uninvolved person vs participant</li><li>Assembly of people: density prevents escape</li><li>A1 C0/C1: may overfly — never directly above head</li><li>A2: 30 m lateral (5 m low-speed mode)</li><li>A3: 150 m from all populated areas</li><li>Kinetic energy: KE = ½mv² — why mass and speed both matter</li></ul></div><div class="detail-block note-block"><p class="detail-label">Instructor Notes</p><p>Use kinetic energy figures: a 250 g drone at 10 m/s carries ~12.5 J — comparable to a cricket ball. Subcategory choice must reflect the environment before take-off.</p></div></div></div></div>
-
-          <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">3.8</span><div class="lesson-title-wrap"><div class="lesson-title">Airspace Classification &amp; Risks</div><div class="lesson-type">Video Lecture</div></div><span class="lesson-dur">~3 min</span><span class="lesson-chevron">▼</span></div>
-          <div class="lesson-detail"><div class="detail-grid"><div class="detail-block"><p class="detail-label">Key Topics</p><ul><li>ICAO airspace classes A–G</li><li>CTR, TMA, ATZ — when permission is required</li><li>Restricted, Prohibited, Danger areas — hard no-fly</li><li>NOTAMs and Temporary Restricted Areas</li><li>Geo-zones: EU Reg 2021/664 (U-space)</li><li>Apps: Drone Assist, Airmap, DJI FlySafe</li><li>Drone pilots give way to all manned aircraft</li></ul></div><div class="detail-block note-block"><p class="detail-label">Instructor Notes</p><p>Practical exercise: have students look up the airspace around their home address using a national geo-awareness tool before the next lesson.</p></div></div></div></div>
-
-          <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">3.9</span><div class="lesson-title-wrap"><div class="lesson-title">Limitations of Human Factors</div><div class="lesson-type">Video Lecture</div></div><span class="lesson-dur">~6 min</span><span class="lesson-chevron">▼</span></div>
-          <div class="lesson-detail"><div class="detail-grid"><div class="detail-block"><p class="detail-label">Learning Objectives</p><ul><li>Identify human-factor threats most linked to UAS incidents</li><li>Apply IMSAFE and PAVE checklists to personal readiness</li></ul></div><div class="detail-block"><p class="detail-label">Key Topics</p><ul><li>SHELL model: Software, Hardware, Environment, Liveware</li><li>Situational awareness loss as leading incident precursor</li><li>Get-home-itis, mission pressure, fatigue, stress</li><li>IMSAFE: Illness · Medication · Stress · Alcohol · Fatigue · Emotion</li><li>PAVE: Pilot · Aircraft · enVironment · External pressures</li><li>CRM adapted for two-person drone operations</li></ul></div><div class="detail-block note-block full"><p class="detail-label">Instructor Notes</p><p>Use a short anonymised accident report to illustrate how human factors chain together. IMSAFE is frequently examined — students must recall all six items.</p></div></div></div></div>
-
-        </div>
-      </div><!-- /module 3 -->
-
-      <!-- ── Module 4 ── -->
-      <div class="module" id="m4">
-        <div class="module-header" onclick="toggleModule(this)">
-          <span class="module-num">04</span>
-          <div class="module-title-wrap">
-            <div class="module-title">Flight Procedures</div>
-            <div class="module-sub">Pre-flight · in-flight · post-flight</div>
-          </div>
-          <span class="module-lesson-count">3 lessons</span>
-          <span class="module-chevron">▼</span>
-        </div>
-        <p class="module-overview">Standardised procedures for the complete flight cycle — planning and pre-flight checks, in-flight management of normal and abnormal situations, and post-flight actions.</p>
-        <div class="lessons">
-
-          <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">4.1</span><div class="lesson-title-wrap"><div class="lesson-title">Pre-Flight Planning &amp; Checks</div><div class="lesson-type">Video Lecture + Demonstration</div></div><span class="lesson-dur">~6 min</span><span class="lesson-chevron">▼</span></div>
-          <div class="lesson-detail"><div class="detail-grid"><div class="detail-block"><p class="detail-label">Key Topics</p><ul><li>Airspace check: geo-zone, NOTAM, ATC permission if required</li><li>Weather assessment: wind, gusts, visibility, temperature</li><li>Drone inspection: propellers, motors, structural integrity</li><li>Battery check: SoC ≥ 80 %, no swelling, voltage per cell</li><li>GPS lock ≥ 8 satellites · compass calibration on new site</li><li>Emergency plan: identify landing zones, brief second crew</li><li>Documentation: operator ID displayed, certificate accessible</li></ul></div><div class="detail-block note-block"><p class="detail-label">Instructor Notes</p><p>Provide a downloadable printable pre-flight checklist PDF. Run a timed demo of a complete pre-flight in under 5 minutes to show it's practical, not burdensome.</p></div></div></div></div>
-
-          <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">4.2</span><div class="lesson-title-wrap"><div class="lesson-title">In-Flight Procedures</div><div class="lesson-type">Video Lecture</div></div><span class="lesson-dur">~9 min</span><span class="lesson-chevron">▼</span></div>
-          <div class="lesson-detail"><div class="detail-grid"><div class="detail-block"><p class="detail-label">Key Topics</p><ul><li>VLOS discipline: scanning technique, sun angle, orientation cues</li><li>Altitude management: below 120 m AGL</li><li>Airspace deconfliction: immediate descent if manned aircraft detected</li><li>Signal loss: RTH activation — don't panic</li><li>Low battery: land without delay at nearest safe spot</li><li>GPS degraded / ATTI mode: manual attitude control</li><li>Compass error: land immediately — risk of fly-away</li></ul></div><div class="detail-block note-block"><p class="detail-label">Instructor Notes</p><p>Simulate signal-loss and low-battery scenarios. Reinforce: RTH altitude must be set above the tallest obstacle in the area before take-off.</p></div></div></div></div>
-
-          <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">4.3</span><div class="lesson-title-wrap"><div class="lesson-title">Post-Flight Procedures</div><div class="lesson-type">Video Lecture</div></div><span class="lesson-dur">~3 min</span><span class="lesson-chevron">▼</span></div>
-          <div class="lesson-detail"><div class="detail-grid"><div class="detail-block"><p class="detail-label">Key Topics</p><ul><li>Landing: confirm motors stopped before approach</li><li>Battery: cool before charging · log cycle count</li><li>Storage charge: ~3.8 V/cell if not flying within 48 hrs</li><li>Post-flight drone inspection for damage</li><li>Flight log: date, location, duration, serial number</li><li>Charging safety: never unattended — use LiPo-safe bag</li></ul></div><div class="detail-block note-block"><p class="detail-label">Instructor Notes</p><p>Share a real case where a missed post-flight defect caused an incident on the subsequent flight. Post-flight care directly extends drone lifespan.</p></div></div></div></div>
-
-        </div>
-      </div>
-
-      <!-- ── Module 5 ── -->
-      <div class="module" id="m5">
-        <div class="module-header" onclick="toggleModule(this)">
-          <span class="module-num">05</span>
-          <div class="module-title-wrap">
-            <div class="module-title">Mock Examinations</div>
-            <div class="module-sub">Exam practice · question bank · gap analysis</div>
-          </div>
-          <span class="module-lesson-count">3 lessons</span>
-          <span class="module-chevron">▼</span>
-        </div>
-        <p class="module-overview">Provides exam practice under realistic conditions to prepare learners for the official EASA A1/A3 online theory test. Two full 40-question mock exams with topic-mapped feedback.</p>
-        <div class="lessons">
-
-          <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">5.1</span><div class="lesson-title-wrap"><div class="lesson-title">Exam Briefing Video</div><div class="lesson-type">Video Briefing</div></div><span class="lesson-dur">~1 min</span><span class="lesson-chevron">▼</span></div>
-          <div class="lesson-detail"><div class="detail-grid"><div class="detail-block"><p class="detail-label">Key Topics</p><ul><li>Format: 40 multiple-choice questions · 30 min · 75 % pass</li><li>Question domain weighting</li><li>Unlimited re-sits via national NAA portal</li><li>Certificate: 5 years validity, tied to operator registration</li><li>Strategy: read each question twice, eliminate wrong answers</li></ul></div><div class="detail-block note-block"><p class="detail-label">Instructor Notes</p><p>Keep reassuring. The exam tests applied knowledge, not pure recall. Remind students it's open to all — even if they've never touched a drone.</p></div></div></div></div>
-
-          <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">5.2</span><div class="lesson-title-wrap"><div class="lesson-title">Mock Examination 1</div><div class="lesson-type">Online Quiz (40 questions)</div></div><span class="lesson-dur">30 min</span><span class="lesson-chevron">▼</span></div>
-          <div class="lesson-detail"><div class="detail-grid"><div class="detail-block"><p class="detail-label">Topic Breakdown</p><ul><li>10 Qs — Drone Regulations (subcategories, class marks)</li><li>8 Qs — Airspace &amp; NOTAMs</li><li>8 Qs — Meteorology &amp; Environment</li><li>7 Qs — UAS Technical Knowledge</li><li>4 Qs — Human Factors</li><li>3 Qs — Flight Procedures, Privacy, Insurance, Security</li></ul></div><div class="detail-block note-block"><p class="detail-label">Instructor Notes</p><p>Display score immediately with per-question feedback. Flag questions in error for the Revision Bank. Question weighting mirrors the official EASA AMC.</p></div></div></div></div>
-
-          <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">5.3</span><div class="lesson-title-wrap"><div class="lesson-title">Mock Examination 2</div><div class="lesson-type">Online Quiz (40 questions)</div></div><span class="lesson-dur">30 min</span><span class="lesson-chevron">▼</span></div>
-          <div class="lesson-detail"><div class="detail-grid"><div class="detail-block"><p class="detail-label">Key Points</p><ul><li>Full syllabus — randomised from a 200+ question bank</li><li>Scenario-based questions: real operational dilemmas</li><li>Increased difficulty: edge cases and less common regulatory articles</li><li>Target: ≥ 75 % as reliable predictor of final exam readiness</li></ul></div><div class="detail-block note-block"><p class="detail-label">Instructor Notes</p><p>If a learner scores below 75 % on both mocks, generate a personalised revision plan flagging weak domains. Gate access to the Final Examination until ≥ 75 % on at least one mock.</p></div></div></div></div>
-
-        </div>
-      </div>
-
-      <!-- ── Module 6 ── -->
-      <div class="module" id="m6">
-        <div class="module-header" onclick="toggleModule(this)">
-          <span class="module-num">06</span>
-          <div class="module-title-wrap">
-            <div class="module-title">Final Examination</div>
-            <div class="module-sub">Official end-of-course assessment</div>
-          </div>
-          <span class="module-lesson-count">1 lesson</span>
-          <span class="module-chevron">▼</span>
-        </div>
-        <p class="module-overview">The official end-of-course assessment. Passing this examination demonstrates that the learner has met the EASA A1/A3 theoretical knowledge requirements under EU Regulation 2019/947.</p>
-        <div class="lessons">
-
-          <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">6.1</span><div class="lesson-title-wrap"><div class="lesson-title">Final Examination</div><div class="lesson-type">Formal Online Examination</div></div><span class="lesson-dur">30 min</span><span class="lesson-chevron">▼</span></div>
-          <div class="lesson-detail"><div class="detail-grid"><div class="detail-block"><p class="detail-label">Objectives</p><ul><li>Demonstrate competency across all EASA A1/A3 knowledge domains</li><li>Achieve minimum 75 % score for certificate issuance</li></ul></div><div class="detail-block"><p class="detail-label">Format</p><ul><li>40 questions across all course modules</li><li>Randomised question and answer order</li><li>No revision materials permitted</li><li>Immediate results on completion</li><li>Digital certificate issued upon passing</li><li>Results submitted electronically to national NAA</li></ul></div><div class="detail-block note-block full"><p class="detail-label">Instructor Notes</p><p>Verify learner identity before the exam commences. Store results securely in compliance with GDPR. Unsuccessful candidates receive a gap analysis and may re-attempt after 24 hours.</p></div></div></div></div>
-
-        </div>
-      </div>
-
-    </div><!-- /module-list -->
-  </main>
-</div><!-- /page-body -->
-
-<div class="divider"></div>
-
-<!-- ── Regulatory References ── -->
-<div class="reg-section">
-  <p class="eyebrow">Regulatory basis</p>
-  <h2 class="sec-title">Key <em>References.</em></h2>
-  <div class="reg-grid">
-    <div class="reg-card"><p class="reg-name">EU Reg 2019/947</p><p class="reg-desc">Rules and procedures for the operation of unmanned aircraft — primary Open Category framework</p></div>
-    <div class="reg-card"><p class="reg-name">EU Reg 2019/945</p><p class="reg-desc">Technical requirements and class identification labels for UAS (C0–C4)</p></div>
-    <div class="reg-card"><p class="reg-name">EU Reg 2021/664</p><p class="reg-desc">U-space framework — geo-zones, geo-awareness, and drone traffic management</p></div>
-    <div class="reg-card"><p class="reg-name">EU Reg 376/2014</p><p class="reg-desc">Occurrence reporting in civil aviation — mandatory and voluntary reports</p></div>
-    <div class="reg-card"><p class="reg-name">EU Reg 785/2004</p><p class="reg-desc">Insurance requirements for aircraft operators including UAS</p></div>
-    <div class="reg-card"><p class="reg-name">GDPR 2016/679</p><p class="reg-desc">Data protection regulation — applies when drone imagery captures personal data</p></div>
-    <div class="reg-card"><p class="reg-name">EASA Easy Access Rules</p><p class="reg-desc">Consolidated AMC &amp; GM to Part-UAS — revised July 2024</p></div>
-    <div class="reg-card"><p class="reg-name">ICAO Annex 11</p><p class="reg-desc">Air Traffic Services — airspace classification used across member states</p></div>
-  </div>
-</div>
-
-<!-- ── Footer ── -->
-<footer>
-  <span>© 2026 Md Zubayar · Oslo, Norway · Educational Demo Sample</span>
-  <span>
-    <a href="/learning/">← Learning Hub</a>
-    &nbsp;·&nbsp;
-    <a href="https://zubayar.no">Main Site</a>
-    &nbsp;·&nbsp;
-    <a href="https://linkedin.com/in/zubayar" target="_blank">LinkedIn</a>
-  </span>
-</footer>
-
-<script>
-  function toggleModule(header) {
-    const module = header.closest('.module');
-    module.classList.toggle('open');
-  }
-  function toggleLesson(header) {
-    const lesson = header.closest('.lesson');
-    lesson.classList.toggle('open');
-  }
-  function scrollToModule(id) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    // Open module on click from sidebar
-    if (!el.classList.contains('open')) el.classList.add('open');
-    const offset = 70;
-    const top = el.getBoundingClientRect().top + window.scrollY - offset;
-    window.scrollTo({ top, behavior: 'smooth' });
-    // Highlight sidebar
-    document.querySelectorAll('#sidebarNav a').forEach(a => a.classList.remove('active'));
-    event.currentTarget.classList.add('active');
-  }
-
-  // Highlight active sidebar item on scroll
-  const moduleEls = document.querySelectorAll('.module');
-  const sideLinks = document.querySelectorAll('#sidebarNav a');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const idx = Array.from(moduleEls).indexOf(entry.target);
-        sideLinks.forEach(l => l.classList.remove('active'));
-        if (sideLinks[idx]) sideLinks[idx].classList.add('active');
-      }
-    });
-  }, { rootMargin: '-40% 0px -50% 0px' });
-  moduleEls.forEach(m => observer.observe(m));
-</script>
-</body>
-</html>
+            <div class="lesson"><div class="lesson-header" onclick="toggleLesson(this)"><span class="lesson-num">4.1</span><div class="lesson-title-wrap"><div class="lesson-title">Pre-Flight Planning &amp; Checks</div><div class="lesson-type">Video Lecture + Demonstration</div></div><span class="lesson-dur">~6 min</span><span class="lesson-chev">▼</span></div>
+            <div class="lesson-detail"><div class="detail-grid">
+              <div class="detail-block db-obj"><p class="detail-label">Learning Objectives</p><ul><li>Complete a structured pre-flight checklist covering regulatory, environmental, and equipment items</li><li>Identify site hazards and select a safe take-off and landing area</li></ul></div>
+              <div class="detail-block db-top"><p class="detail-label">Key Topics</p><ul><li>Airspace check: geo-zone, NOTAM, ATC permission if required</li><li>Weather: wind speed, gusts, visibility, temperature, precipitation</li><li>Drone inspection: propellers, motors, structural integrity</li><li>Battery: SoC ≥ 80%, no swelling, correct voltage, temp ≥ 10 °C</li><li>GPS lock ≥ 8 satellites · compass calibration on new site</li><li>Emergency plan: identify landing zones, brief second crew member</li><li>Documentation: operator ID displayed, certificate accessible</li></ul></div>
+              <div c
