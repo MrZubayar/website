@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learning — Md Zubayar</title>
+  <meta name="description" content="Educational demo projects and learning resources by Md Zubayar — UAV, Signal Processing, Embedded Systems." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & base ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:        #0e0804;
+      --bg2:       #1a0f07;
+      --bg3:       #261508;
+      --border:    #3a2010;
+      --border2:   #4d2c12;
+      --accent:    #c06a20;
+      --accent2:   #e07d2a;
+      --accent3:   #f0a050;
+      --text:      #f0e8df;
+      --text2:     #b8a090;
+      --text3:     #7a6050;
+      --green:     #5a9a5a;
+      --mono:      'JetBrains Mono', monospace;
+      --sans:      'Inter', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Scrollbar ─────────────────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+
+    /* ── Nav ───────────────────────────────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem;
+      height: 52px;
+    }
+    .nav-logo {
+      font-family: var(--mono);
+      font-weight: 500;
+      font-size: 1rem;
+      color: var(--text);
+      letter-spacing: 0.05em;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links {
+      display: flex; gap: 0; list-style: none;
+      height: 100%;
+    }
+    .nav-links a {
+      display: flex; align-items: center;
+      height: 52px;
+      padding: 0 1rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text2);
+      border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s, background .2s;
+    }
+    .nav-links a:hover { color: var(--text); background: var(--bg3); }
+    .nav-links a.active {
+      color: var(--accent2);
+      background: rgba(192,106,32,.12);
+      border-bottom-color: var(--accent);
+    }
+    .nav-cv {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent); border: 1px solid var(--accent);
+      padding: 0.3rem 0.75rem; border-radius: 3px;
+      transition: background .2s, color .2s;
+    }
+    .nav-cv:hover { background: var(--accent); color: var(--bg); }
+
+    /* ── Hero ──────────────────────────────────────────────────────── */
+    .hero {
+      padding: 5rem 2rem 4rem;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 em { font-style: italic; color: var(--accent2); }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--text2);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .hero-tags {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+    }
+    .tag {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      padding: 0.25rem 0.65rem;
+      border: 1px solid var(--border2);
+      border-radius: 2px;
+      color: var(--text2);
+      background: var(--bg2);
+    }
+
+    /* ── Divider ───────────────────────────────────────────────────── */
+    .divider {
+      max-width: 1100px; margin: 0 auto;
+      height: 1px; background: var(--border);
+    }
+
+    /* ── Section ───────────────────────────────────────────────────── */
+    section {
+      max-width: 1100px; margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    .section-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .section-header {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .section-title {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+    }
+    .section-title em { font-style: italic; color: var(--accent2); }
+    .section-desc {
+      color: var(--text2);
+      font-size: 0.92rem;
+      max-width: 460px;
+      line-height: 1.6;
+      margin-top: 0.5rem;
+    }
+
+    /* ── Category grid ─────────────────────────────────────────────── */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .cat-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 2rem;
+      display: flex; flex-direction: column;
+      transition: border-color .25s, transform .2s, box-shadow .25s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .cat-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent3));
+      opacity: 0; transition: opacity .25s;
+    }
+    .cat-card:hover {
+      border-color: var(--border2);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,.5);
+    }
+    .cat-card:hover::before { opacity: 1; }
+    .cat-card.coming-soon {
+      opacity: 0.45;
+      cursor: default;
+    }
+    .cat-card.coming-soon:hover { transform: none; box-shadow: none; border-color: var(--border); }
+    .cat-card.coming-soon:hover::before { opacity: 0; }
+
+    .cat-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+    .cat-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+    .cat-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+    .cat-desc {
+      font-size: 0.88rem;
+      color: var(--text2);
+      line-height: 1.6;
+      flex: 1;
+    }
+    .cat-meta {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+    .cat-count {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--text3);
+    }
+    .cat-arrow {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 600;
+      transition: transform .2s;
+    }
+    .cat-card:hover .cat-arrow { transform: translateX(4px); }
+    .cs-badge {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text3);
+      border: 1px solid var(--border);
+      padding: 0.15rem 0.5rem;
+      border-radius: 2px;
+    }
+
+    /* ── Course listing ─────────────────────────────────────────────── */
+    .course-list { display: flex; flex-direction: column; gap: 1rem; margin-top: 2.5rem; }
+    .course-item {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem 2rem;
+      display: flex; align-items: center; gap: 1.5rem;
+      transition: border-color .2s, background .2s;
+      cursor: pointer;
+    }
+    .course-item:hover { border-color: var(--border2); background: var(--bg3); }
+    .course-num {
+      font-family: var(--mono);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--border2);
+      min-width: 2.5rem;
+    }
+    .course-body { flex: 1; }
+    .course-title { font-size: 1.05rem; font-weight: 600; color: var(--text); margin-bottom: 0.3rem; }
+    .course-meta { font-size: 0.8rem; color: var(--text2); display: flex; gap: 1.25rem; flex-wrap: wrap; }
+    .course-meta span { display: flex; align-items: center; gap: 0.3rem; }
+    .pill {
+      font-family: var(--mono); font-size: 0.62rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.2rem 0.55rem; border-radius: 2px;
+    }
+    .pill-green { background: rgba(90,154,90,.15); color: #7abf7a; border: 1px solid rgba(90,154,90,.3); }
+    .pill-orange { background: rgba(192,106,32,.15); color: var(--accent2); border: 1px solid rgba(192,106,32,.3); }
+
+    /* ── About section ──────────────────────────────────────────────── */
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+    }
+    @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 6px; padding: 1.75rem;
+    }
+    .about-card h3 {
+      font-size: 0.95rem; font-weight: 600; color: var(--accent2);
+      margin-bottom: 0.75rem;
+    }
+    .about-card p { font-size: 0.88rem; color: var(--text2); line-height: 1.7; }
+
+    /* ── Footer ─────────────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      max-width: 1100px; margin: 2rem auto 0;
+      padding: 1.5rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 0.75rem;
+      font-size: 0.75rem; color: var(--text3);
+    }
+    footer a { color: var(--text2); transition: color .2s; }
+    footer a:hover { color: var(--accent2); }
+
+    /* ── Responsive ─────────────────────────────────────────────────── */
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
+      .hero { padding: 3rem 1.25rem 2.5rem; }
+      section { padding: 2.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ──────────────────────────────────────────────────────── -->
+<nav>
+  <a href="https://zubayar.no" class="nav-logo"><span>MZ</span>.</a>
+  <ul class="nav-links">
+    <li><a href="https://zubayar.no/#home">Home</a></li>
+    <li><a href="https://zubayar.no/#skills">Skills</a></li>
+    <li><a href="https://zubayar.no/#certs">Certs</a></li>
+    <li><a href="https://zubayar.no/#projects">Projects</a></li>
+    <li><a href="https://zubayar.no/#experience">Experience</a></li>
+    <li><a href="https://zubayar.no/#education">Education</a></li>
+    <li><a href="/learning/" class="active">Learning</a></li>
+    <li><a href="https://zubayar.no/#contact">Contact</a></li>
+  </ul>
+  <a href="https://zubayar.no/assets/docs/Muhammad_Zubayar_CV.pdf" class="nav-cv" target="_blank">Download CV ↗</a>
+</nav>
+
+<!-- ── Hero ────────────────────────────────────────────────────────────── -->
+<div class="hero">
+  <p class="hero-eyebrow">✦ Personal Learning · Demo Resources</p>
+  <h1>Learning &amp;<br><em>Knowledge Base.</em></h1>
+  <p class="hero-sub">
+    A curated collection of educational demos, course breakdowns, and technical
+    references drawn from real certifications and field experience.
+    Open to students, fellow engineers, and curious minds.
+  </p>
+  <div class="hero-tags">
+    <span class="tag">UAV / Drone Ops</span>
+    <span class="tag">Signal Processing</span>
+    <span class="tag">Embedded Systems</span>
+    <span class="tag">Safety & Compliance</span>
+    <span class="tag">Open Source</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ── Categories ──────────────────────────────────────────────────────── -->
+<section id="categories">
+  <div class="section-header">
+    <div>
+      <p class="section-eyebrow">Browse by domain</p>
+      <h2 class="section-title">Knowledge <em>Categories.</em></h2>
+      <p class="section-desc">Each category groups related course material, demo breakdowns, and reference guides.</p>
+    </div>
+  </div>
+
+  <div class="cat-grid">
+
+    <!-- UAV — active -->
+    <a href="/learning/uav/" class="cat-card" style="text-decoration:none;color:inherit;">
+      <div class="cat-icon">🚁</div>
+      <p class="cat-label">Domain 01</p>
+      <h3 class="cat-name">UAV / Drone Operations</h3>
+      <p class="cat-desc">
+        EASA Open Category regulations, airspace management, flight procedures,
+        meteorology, and UAS technical knowledge — based on real A2 certification experience.
+      </p>
+      <div class="cat-meta">
+        <span class="cat-count">1 course · 20 lessons</span>
+        <span class="cat-arrow">→</span>
+      </div>
+    </a>
+
+    <!-- Signal Processing — coming soon -->
+    <div class="cat-card coming-soon">
+      <div class="cat-icon">📡</div>
+      <p class="cat-label">Domain 02</p>
+      <h3 class="cat-name">Signal Processing</h3>
+      <p class="cat-desc">
+        EEG/fNIRS analysis pipelines, filter benchmarking, spectral methods,
+        and applied MATLAB / Python workflows from M.Sc. research.
+      </p>
+      <div class="cat-meta">
+        <span class="cs-badge">Coming soon</span>
+      </div>
+    </div>
+
+    <!-- Embedded & Hardware — coming soon -->
+    <div class="cat-card coming-soon">
+      <div class="cat-icon">🔩</div>
+      <p class="cat-label">Domain 03</p>
+      <h3 class="cat-name">Embedded & Hardware</h3>
+      <p class="cat-desc">
+        Sensor integration guides, microcontroller projects, PCB debugging
+        techniques, and LabVIEW DAQ walkthroughs.
+      </p>
+      <div class="cat-meta">
+        <span class="cs-badge">Coming soon</span>
+      </div>
+    </div>
+
+    <!-- Safety & Compliance — coming soon -->
+    <div class="cat-card coming-soon">
+      <div class="cat-icon">⚡</div>
+      <p class="cat-label">Domain 04</p>
+      <h3 class="cat-name">Safety & Compliance</h3>
+      <p class="cat-desc">
+        ATEX / Ex basics, electrical safety standards, offshore HSE frameworks,
+        and hazardous-area classification primers.
+      </p>
+      <div class="cat-meta">
+        <span class="cs-badge">Coming soon</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── UAV section preview ──────────────────────────────────────────────── -->
+<section id="uav">
+  <div class="section-header">
+    <div>
+      <p class="section-eyebrow">🚁 UAV / Drone Operations</p>
+      <h2 class="section-title">Available <em>Courses.</em></h2>
+    </div>
+  </div>
+
+  <div class="course-list">
+    <a href="/learning/uav/a1-a3.html" style="text-decoration:none;color:inherit;">
+      <div class="course-item">
+        <div class="course-num">01</div>
+        <div class="course-body">
+          <p class="course-title">EASA Open Category A1/A3 — Remote Pilot Certificate</p>
+          <div class="course-meta">
+            <span>📋 6 modules · 20 lessons</span>
+            <span>⏱ ~5 hrs</span>
+            <span>🇪🇺 EU Reg 2019/947</span>
+            <span><span class="pill pill-green">Demo Available</span></span>
+            <span><span class="pill pill-orange">Updated 2024–25</span></span>
+          </div>
+        </div>
+        <span style="color:var(--accent);font-size:1.1rem;">→</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── About section ────────────────────────────────────────────────────── -->
+<section id="about">
+  <div class="section-header">
+    <div>
+      <p class="section-eyebrow">Why this exists</p>
+      <h2 class="section-title">Purpose &amp; <em>Approach.</em></h2>
+    </div>
+  </div>
+  <div class="about-grid">
+    <div class="about-card">
+      <h3>Educational Demo Samples</h3>
+      <p>
+        These pages are structured demonstrations of how I approach learning and knowledge organisation —
+        not just collecting certificates, but breaking them down into shareable, teachable material.
+        Each course page reflects genuine study from actual certifications I hold.
+      </p>
+    </div>
+    <div class="about-card">
+      <h3>Open Reference</h3>
+      <p>
+        Everything here is freely accessible. If you're preparing for an EASA drone exam, studying
+        for an offshore certification, or just curious about the field — feel free to use these resources.
+        Feedback and corrections are always welcome.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ───────────────────────────────────────────────────────────── -->
+<footer>
+  <span>© 2026 Md Zubayar · Oslo, Norway</span>
+  <span>
+    <a href="https://zubayar.no">← Back to main site</a>
+    &nbsp;·&nbsp;
+    <a href="https://linkedin.com/in/zubayar" target="_blank">LinkedIn</a>
+    &nbsp;·&nbsp;
+    <a href="https://github.com/MrZubayar" target="_blank">GitHub</a>
+  </span>
+</footer>
+
+</body>
+</html>
